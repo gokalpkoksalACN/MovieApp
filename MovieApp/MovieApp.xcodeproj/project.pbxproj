@@ -16,6 +16,8 @@
 		61231DD9289A61A2007BEA61 /* MovieAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61231DD8289A61A2007BEA61 /* MovieAppTests.swift */; };
 		61231DE3289A61A2007BEA61 /* MovieAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61231DE2289A61A2007BEA61 /* MovieAppUITests.swift */; };
 		61231DE5289A61A2007BEA61 /* MovieAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61231DE4289A61A2007BEA61 /* MovieAppUITestsLaunchTests.swift */; };
+		61231DF5289A7701007BEA61 /* LandingContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61231DF4289A7701007BEA61 /* LandingContracts.swift */; };
+		61231DF7289A78E2007BEA61 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61231DF6289A78E2007BEA61 /* LandingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		61231DDE289A61A2007BEA61 /* MovieAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61231DE2289A61A2007BEA61 /* MovieAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppUITests.swift; sourceTree = "<group>"; };
 		61231DE4289A61A2007BEA61 /* MovieAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		61231DF4289A7701007BEA61 /* LandingContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingContracts.swift; sourceTree = "<group>"; };
+		61231DF6289A78E2007BEA61 /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				61231DC7289A619D007BEA61 /* Landing.storyboard */,
+				61231DF4289A7701007BEA61 /* LandingContracts.swift */,
 				61231DC5289A619D007BEA61 /* LandingViewController.swift */,
+				61231DF6289A78E2007BEA61 /* LandingViewModel.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -275,8 +281,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				61231DC6289A619D007BEA61 /* LandingViewController.swift in Sources */,
+				61231DF7289A78E2007BEA61 /* LandingViewModel.swift in Sources */,
 				61231DC2289A619D007BEA61 /* AppDelegate.swift in Sources */,
 				61231DC4289A619D007BEA61 /* SceneDelegate.swift in Sources */,
+				61231DF5289A7701007BEA61 /* LandingContracts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

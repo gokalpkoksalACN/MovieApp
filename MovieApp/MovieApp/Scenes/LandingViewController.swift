@@ -7,13 +7,12 @@
 
 import UIKit
 
-class LandingViewController: UIViewController {
-
+// TODO: Implement view elements.
+class LandingViewController: UIViewController, LandingViewModelDelegate {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
 
 }
 
