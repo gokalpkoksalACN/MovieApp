@@ -12,6 +12,8 @@ class LandingViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    private let backgroundImageNames = ["breakingBad", "friends", "walkingDead"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
@@ -23,23 +25,24 @@ class LandingViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         collectionView.collectionViewLayout = layout
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView.register(LandingScreenCell.self, forCellWithReuseIdentifier: LandingScreenCell.identifier)
+        collectionView.isPagingEnabled = true
     }
 
 }
 
 extension LandingViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
-    // TODO: change number of items with landing image count
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return backgroundImageNames.count
     }
     
-    // TODO: return correct cell with image etc.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
-        cell.backgroundColor = .blue
-        return cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LandingScreenCell.identifier, for: indexPath) as? LandingScreenCell {
+            cell.setup(with: backgroundImageNames[indexPath.item])
+            return cell
+        }
+        return UICollectionViewCell()
     }
     
 }
@@ -49,6 +52,10 @@ extension LandingViewController: UICollectionViewDelegateFlowLayout {
     // TODO: Fix cells are not ignoring safe areas.
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }
 

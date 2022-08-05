@@ -18,6 +18,7 @@
 		61231DE5289A61A2007BEA61 /* MovieAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61231DE4289A61A2007BEA61 /* MovieAppUITestsLaunchTests.swift */; };
 		61231DF5289A7701007BEA61 /* LandingContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61231DF4289A7701007BEA61 /* LandingContracts.swift */; };
 		61231DF7289A78E2007BEA61 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61231DF6289A78E2007BEA61 /* LandingViewModel.swift */; };
+		61A19B57289D0D37003C4DB8 /* LandingScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A19B55289D0D37003C4DB8 /* LandingScreenCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		61231DE4289A61A2007BEA61 /* MovieAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		61231DF4289A7701007BEA61 /* LandingContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingContracts.swift; sourceTree = "<group>"; };
 		61231DF6289A78E2007BEA61 /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
+		61A19B55289D0D37003C4DB8 /* LandingScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingScreenCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,12 +143,21 @@
 		61231DF2289A62D2007BEA61 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				61A19B59289D1A44003C4DB8 /* Landing */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		61A19B59289D1A44003C4DB8 /* Landing */ = {
+			isa = PBXGroup;
+			children = (
 				61231DC7289A619D007BEA61 /* Landing.storyboard */,
 				61231DF4289A7701007BEA61 /* LandingContracts.swift */,
 				61231DC5289A619D007BEA61 /* LandingViewController.swift */,
 				61231DF6289A78E2007BEA61 /* LandingViewModel.swift */,
+				61A19B55289D0D37003C4DB8 /* LandingScreenCell.swift */,
 			);
-			path = Scenes;
+			path = Landing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +296,7 @@
 				61231DC2289A619D007BEA61 /* AppDelegate.swift in Sources */,
 				61231DC4289A619D007BEA61 /* SceneDelegate.swift in Sources */,
 				61231DF5289A7701007BEA61 /* LandingContracts.swift in Sources */,
+				61A19B57289D0D37003C4DB8 /* LandingScreenCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
