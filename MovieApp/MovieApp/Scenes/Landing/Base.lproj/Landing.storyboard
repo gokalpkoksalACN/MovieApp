@@ -51,6 +51,15 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMd-tj-bNN">
+                                <rect key="frame" x="0.0" y="344" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gS1-Fg-cGA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -62,8 +71,11 @@
                             <constraint firstItem="och-2u-Rmq" firstAttribute="top" secondItem="NhD-gV-hhB" secondAttribute="bottom" constant="70" id="JCD-fe-dBP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Emk-Cs-Cvx" secondAttribute="bottom" id="PgF-P9-hhy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Emk-Cs-Cvx" secondAttribute="trailing" id="ZHA-jh-2rg"/>
+                            <constraint firstItem="GMd-tj-bNN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="300" id="ZHd-RW-usj"/>
                             <constraint firstItem="Emk-Cs-Cvx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZxS-aJ-qvp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NhD-gV-hhB" secondAttribute="trailing" constant="34" id="iN9-u7-4w9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GMd-tj-bNN" secondAttribute="trailing" id="lpU-Qt-P0B"/>
+                            <constraint firstItem="GMd-tj-bNN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qAX-1r-Cfm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="och-2u-Rmq" secondAttribute="trailing" constant="10" id="yeT-4X-1Tf"/>
                         </constraints>
                     </view>
@@ -71,6 +83,7 @@
                         <outlet property="button" destination="NhD-gV-hhB" id="tJ5-T6-eEV"/>
                         <outlet property="collectionView" destination="Emk-Cs-Cvx" id="bcf-CL-J38"/>
                         <outlet property="pageControl" destination="och-2u-Rmq" id="3d9-vx-8ld"/>
+                        <outlet property="titleLabel" destination="GMd-tj-bNN" id="hNw-g5-28z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

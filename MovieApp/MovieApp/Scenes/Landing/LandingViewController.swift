@@ -12,15 +12,31 @@ class LandingViewController: UIViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageControl: UIPageControl!
+    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var button: UIButton!
     
     private let backgroundImageNames = ["breakingBad", "friends", "walkingDead"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureContent()
+    }
+    
+    private func configureContent() {
         configureCollectionView()
         configurePageControl()
         configureExploreButton()
+        configureTitleLabel()
+    }
+    
+    private func configureTitleLabel() {
+        // TODO: Fix according to Zeplin design.
+        titleLabel.text = "Movies & Series"
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 40)
+        titleLabel.textColor = .white
+        titleLabel.textAlignment = .center
+        titleLabel.shadowOffset = CGSize(width: 0.5, height: 0.5)
+        titleLabel.shadowColor = .darkGray
     }
     
     private func configureExploreButton() {
