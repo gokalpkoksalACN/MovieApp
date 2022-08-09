@@ -23,13 +23,7 @@ class LandingViewController: UIViewController {
         configureContent()
     }
     @IBAction func explorePressed(_ sender: Any) {
-        // TODO: Implement navigation to dashboard.
-//        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-//        if let tabBarVC = storyboard.instantiateViewController(withIdentifier: "DashboardTabBarController") as? UITabBarController {
-//            if let vcs = tabBarVC.viewControllers, let discoverVC = vcs.first as? DiscoverViewController {
-//                show(discoverVC, sender: self)
-//            }
-//        }
+        performSegue(withIdentifier: "landingToDashboard", sender: nil)
     }
     
     private func configureContent() {
