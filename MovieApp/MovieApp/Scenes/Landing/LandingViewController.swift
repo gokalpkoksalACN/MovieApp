@@ -73,11 +73,10 @@ class LandingViewController: UIViewController {
     }
     
     private func configurePageControl() {
-        // TODO: update colors according to zeplin
         pageControl.numberOfPages = backgroundImageNames.count
         pageControl.currentPage = 0
-        pageControl.currentPageIndicatorTintColor = .darkGray
-        pageControl.pageIndicatorTintColor = .lightGray
+        pageControl.currentPageIndicatorTintColor = UIColor(red: 2/255, green: 148/255, blue: 165/255, alpha: 0.8)
+        pageControl.pageIndicatorTintColor = .white
     }
     
     private func configureCollectionView() {
