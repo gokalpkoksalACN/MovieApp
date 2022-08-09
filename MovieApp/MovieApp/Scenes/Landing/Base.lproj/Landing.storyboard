@@ -43,20 +43,32 @@
                                     <constraint firstAttribute="height" constant="26" id="QRg-Zb-k3z"/>
                                 </constraints>
                             </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NhD-gV-hhB">
+                                <rect key="frame" x="34" y="725" width="346" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="GhI-Hx-Jnb"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="NhD-gV-hhB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="34" id="0DE-Ne-gkL"/>
                             <constraint firstItem="Emk-Cs-Cvx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8va-iW-Hwx"/>
                             <constraint firstItem="och-2u-Rmq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="C4e-ah-3Zk"/>
                             <constraint firstAttribute="bottom" secondItem="och-2u-Rmq" secondAttribute="bottom" constant="20" id="HTT-bM-WKu"/>
+                            <constraint firstItem="och-2u-Rmq" firstAttribute="top" secondItem="NhD-gV-hhB" secondAttribute="bottom" constant="70" id="JCD-fe-dBP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Emk-Cs-Cvx" secondAttribute="bottom" id="PgF-P9-hhy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Emk-Cs-Cvx" secondAttribute="trailing" id="ZHA-jh-2rg"/>
                             <constraint firstItem="Emk-Cs-Cvx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZxS-aJ-qvp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NhD-gV-hhB" secondAttribute="trailing" constant="34" id="iN9-u7-4w9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="och-2u-Rmq" secondAttribute="trailing" constant="10" id="yeT-4X-1Tf"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="button" destination="NhD-gV-hhB" id="tJ5-T6-eEV"/>
                         <outlet property="collectionView" destination="Emk-Cs-Cvx" id="bcf-CL-J38"/>
                         <outlet property="pageControl" destination="och-2u-Rmq" id="3d9-vx-8ld"/>
                     </connections>

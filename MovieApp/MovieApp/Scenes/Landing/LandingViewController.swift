@@ -11,14 +11,25 @@ import UIKit
 class LandingViewController: UIViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
-    
     @IBOutlet private weak var pageControl: UIPageControl!
+    @IBOutlet private weak var button: UIButton!
+    
     private let backgroundImageNames = ["breakingBad", "friends", "walkingDead"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
         configurePageControl()
+        configureExploreButton()
+    }
+    
+    private func configureExploreButton() {
+        // TODO: Update title fonts according to Zeplin design.
+        button.setTitle("Explore Collection", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 22)
+        button.setTitleColor(.white, for: .normal)
+        // button.backgroundColor = UIColor(red: 2, green: 148, blue: 165, alpha: 0.8)
+        button.backgroundColor = .systemTeal
     }
     
     private func configurePageControl() {
