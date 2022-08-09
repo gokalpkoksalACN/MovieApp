@@ -11,7 +11,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Gvw-iU-PN5">
             <objects>
-                <tabBarController id="e2c-2B-0xJ" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="DashboardTabBarController" id="e2c-2B-0xJ" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EVQ-ag-yT3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
