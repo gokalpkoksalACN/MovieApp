@@ -23,9 +23,9 @@ class LandingScreenCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // TODO: Fix constraints to keep image's widgth/height constant.
     private func setupLayouts() {
         contentView.addSubview(imageView)
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: frame.height).isActive = true

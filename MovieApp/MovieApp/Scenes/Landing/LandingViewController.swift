@@ -14,7 +14,7 @@ class LandingViewController: UIViewController {
     @IBOutlet private weak var pageControl: UIPageControl!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var button: UIButton!
+    @IBOutlet private weak var buttonStackView: UIStackView!
     
     private let backgroundImageNames = ["breakingBad", "friends", "walkingDead"]
     
@@ -22,7 +22,7 @@ class LandingViewController: UIViewController {
         super.viewDidLoad()
         configureContent()
     }
-    @IBAction func explorePressed(_ sender: Any) {
+    @objc func explorePressed(_ sender: Any) {
         performSegue(withIdentifier: "landingToDashboard", sender: nil)
     }
     
@@ -54,11 +54,22 @@ class LandingViewController: UIViewController {
     
     private func configureExploreButton() {
         // TODO: Update title fonts according to Zeplin design.
-        button.setTitle("Explore Collection", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 22)
-        button.setTitleColor(.white, for: .normal)
-        // button.backgroundColor = UIColor(red: 2, green: 148, blue: 165, alpha: 0.8)
-        button.backgroundColor = .systemTeal
+        let exploreLabel = UILabel()
+        exploreLabel.text = "Explore Collection"
+        exploreLabel.textColor = .white
+        exploreLabel.textAlignment = .center
+        let chevronRightImage = UIImage(named: "chevron_right")?.withRenderingMode(.alwaysTemplate)
+        let arrowSign = UIImageView(image: chevronRightImage)
+        arrowSign.tintColor = .white
+        arrowSign.translatesAutoresizingMaskIntoConstraints = false
+        arrowSign.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        arrowSign.heightAnchor.constraint(equalTo: arrowSign.widthAnchor).isActive = true
+        buttonStackView.addArrangedSubview(exploreLabel)
+        buttonStackView.addArrangedSubview(arrowSign)
+        buttonStackView.backgroundColor = UIColor(red: 2/255, green: 148/255, blue: 165/255, alpha: 0.8)
+        buttonStackView.layer.cornerRadius = 7.0
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(explorePressed(_:)))
+        buttonStackView.addGestureRecognizer(gestureRecognizer)
     }
     
     private func configurePageControl() {
@@ -104,7 +115,6 @@ extension LandingViewController: UICollectionViewDataSource, UICollectionViewDel
 
 extension LandingViewController: UICollectionViewDelegateFlowLayout {
     
-    // TODO: Fix cells are not ignoring safe areas.
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
