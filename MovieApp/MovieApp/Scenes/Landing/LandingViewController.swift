@@ -10,13 +10,23 @@ import UIKit
 // TODO: Fix collection view content
 class LandingViewController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
+    @IBOutlet private weak var pageControl: UIPageControl!
     private let backgroundImageNames = ["breakingBad", "friends", "walkingDead"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
+        configurePageControl()
+    }
+    
+    private func configurePageControl() {
+        // TODO: update colors according to zeplin
+        pageControl.numberOfPages = backgroundImageNames.count
+        pageControl.currentPage = 0
+        pageControl.currentPageIndicatorTintColor = .darkGray
+        pageControl.pageIndicatorTintColor = .lightGray
     }
     
     private func configureCollectionView() {
@@ -43,6 +53,11 @@ extension LandingViewController: UICollectionViewDataSource, UICollectionViewDel
             return cell
         }
         return UICollectionViewCell()
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let x = targetContentOffset.pointee.x
+        pageControl.currentPage = Int(x / view.frame.width)
     }
     
 }
