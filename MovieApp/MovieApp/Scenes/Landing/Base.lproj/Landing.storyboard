@@ -49,12 +49,21 @@
                                     <constraint firstAttribute="height" constant="55" id="GhI-Hx-Jnb"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Explore"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMd-tj-bNN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMd-tj-bNN">
                                 <rect key="frame" x="0.0" y="344" width="414" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gS1-Fg-cGA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cZ-SF-UD0">
+                                <rect key="frame" x="15" y="409" width="384" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="xvN-b6-0Qz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -67,12 +76,15 @@
                             <constraint firstItem="NhD-gV-hhB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="34" id="0DE-Ne-gkL"/>
                             <constraint firstItem="Emk-Cs-Cvx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8va-iW-Hwx"/>
                             <constraint firstItem="och-2u-Rmq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="C4e-ah-3Zk"/>
+                            <constraint firstAttribute="trailing" secondItem="2cZ-SF-UD0" secondAttribute="trailing" constant="15" id="CaY-M4-bHN"/>
                             <constraint firstAttribute="bottom" secondItem="och-2u-Rmq" secondAttribute="bottom" constant="20" id="HTT-bM-WKu"/>
                             <constraint firstItem="och-2u-Rmq" firstAttribute="top" secondItem="NhD-gV-hhB" secondAttribute="bottom" constant="70" id="JCD-fe-dBP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Emk-Cs-Cvx" secondAttribute="bottom" id="PgF-P9-hhy"/>
+                            <constraint firstItem="2cZ-SF-UD0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="RQB-0J-FPi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Emk-Cs-Cvx" secondAttribute="trailing" id="ZHA-jh-2rg"/>
                             <constraint firstItem="GMd-tj-bNN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="300" id="ZHd-RW-usj"/>
                             <constraint firstItem="Emk-Cs-Cvx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZxS-aJ-qvp"/>
+                            <constraint firstItem="2cZ-SF-UD0" firstAttribute="top" secondItem="GMd-tj-bNN" secondAttribute="bottom" constant="15" id="bPT-so-G7S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NhD-gV-hhB" secondAttribute="trailing" constant="34" id="iN9-u7-4w9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GMd-tj-bNN" secondAttribute="trailing" id="lpU-Qt-P0B"/>
                             <constraint firstItem="GMd-tj-bNN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qAX-1r-Cfm"/>
@@ -82,6 +94,7 @@
                     <connections>
                         <outlet property="button" destination="NhD-gV-hhB" id="tJ5-T6-eEV"/>
                         <outlet property="collectionView" destination="Emk-Cs-Cvx" id="bcf-CL-J38"/>
+                        <outlet property="descriptionLabel" destination="2cZ-SF-UD0" id="pkG-zF-Da9"/>
                         <outlet property="pageControl" destination="och-2u-Rmq" id="3d9-vx-8ld"/>
                         <outlet property="titleLabel" destination="GMd-tj-bNN" id="hNw-g5-28z"/>
                     </connections>

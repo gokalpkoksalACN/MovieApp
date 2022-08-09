@@ -13,6 +13,7 @@ class LandingViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageControl: UIPageControl!
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var button: UIButton!
     
     private let backgroundImageNames = ["breakingBad", "friends", "walkingDead"]
@@ -27,6 +28,15 @@ class LandingViewController: UIViewController {
         configurePageControl()
         configureExploreButton()
         configureTitleLabel()
+        configureDescriptionTitle()
+    }
+    
+    private func configureDescriptionTitle() {
+        descriptionLabel.text = "The world’s most popular and authoritative source for movies and series."
+        descriptionLabel.font = UIFont.systemFont(ofSize: 17)
+        descriptionLabel.textColor = .white
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.textAlignment = .center
     }
     
     private func configureTitleLabel() {
