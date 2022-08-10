@@ -35,17 +35,18 @@ class LandingViewController: UIViewController {
     }
     
     private func configureDescriptionTitle() {
+        // TODO: Fix shadows
         descriptionLabel.text = "The world’s most popular and authoritative source for movies and series."
-        descriptionLabel.font = UIFont.systemFont(ofSize: 17)
+        descriptionLabel.font = UIFont(name: "AppleGothic", size: 17)
         descriptionLabel.textColor = .white
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = .center
     }
     
     private func configureTitleLabel() {
-        // TODO: Fix according to Zeplin design.
+        // TODO: Fix shadows
         titleLabel.text = "Movies & Series"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 40)
+        titleLabel.font = UIFont(name: "AppleGothic", size: 40)
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
         titleLabel.shadowOffset = CGSize(width: 0.5, height: 0.5)
@@ -53,21 +54,24 @@ class LandingViewController: UIViewController {
     }
     
     private func configureExploreButton() {
-        // TODO: Update title fonts according to Zeplin design.
         let exploreLabel = UILabel()
         exploreLabel.text = "Explore Collection"
+        exploreLabel.font = UIFont(name: "AppleGothic", size: 22)
         exploreLabel.textColor = .white
         exploreLabel.textAlignment = .center
+        
         let chevronRightImage = UIImage(named: "chevron_right")?.withRenderingMode(.alwaysTemplate)
         let arrowSign = UIImageView(image: chevronRightImage)
         arrowSign.tintColor = .white
         arrowSign.translatesAutoresizingMaskIntoConstraints = false
         arrowSign.widthAnchor.constraint(equalToConstant: 20).isActive = true
         arrowSign.heightAnchor.constraint(equalTo: arrowSign.widthAnchor).isActive = true
+        
         buttonStackView.addArrangedSubview(exploreLabel)
         buttonStackView.addArrangedSubview(arrowSign)
         buttonStackView.backgroundColor = UIColor(red: 2/255, green: 148/255, blue: 165/255, alpha: 0.8)
         buttonStackView.layer.cornerRadius = 7.0
+        
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(explorePressed(_:)))
         buttonStackView.addGestureRecognizer(gestureRecognizer)
     }
