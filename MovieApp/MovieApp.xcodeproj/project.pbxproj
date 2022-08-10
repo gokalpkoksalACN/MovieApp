@@ -26,6 +26,9 @@
 		61A19BA628A3AB80003C4DB8 /* AppleGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61A19BA528A3AB80003C4DB8 /* AppleGothic.ttf */; };
 		61A19BA728A3AB80003C4DB8 /* AppleGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61A19BA528A3AB80003C4DB8 /* AppleGothic.ttf */; };
 		61A19BA828A3AB80003C4DB8 /* AppleGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61A19BA528A3AB80003C4DB8 /* AppleGothic.ttf */; };
+		61A19BAB28A3AF15003C4DB8 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A19BAA28A3AF15003C4DB8 /* CALayer.swift */; };
+		61A19BAC28A3AF15003C4DB8 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A19BAA28A3AF15003C4DB8 /* CALayer.swift */; };
+		61A19BAD28A3AF15003C4DB8 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A19BAA28A3AF15003C4DB8 /* CALayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,7 @@
 		61A19B6228A254D6003C4DB8 /* GenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
 		61A19B6428A254E4003C4DB8 /* ArtistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewController.swift; sourceTree = "<group>"; };
 		61A19BA528A3AB80003C4DB8 /* AppleGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleGothic.ttf; sourceTree = "<group>"; };
+		61A19BAA28A3AF15003C4DB8 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,7 @@
 		61231DC0289A619D007BEA61 /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
+				61A19BA928A3AEAE003C4DB8 /* Extensions */,
 				61A19BA428A3AB56003C4DB8 /* Fonts */,
 				61231DF2289A62D2007BEA61 /* Scenes */,
 				61231DF1289A62B5007BEA61 /* App */,
@@ -215,6 +220,14 @@
 				61A19BA528A3AB80003C4DB8 /* AppleGothic.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		61A19BA928A3AEAE003C4DB8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				61A19BAA28A3AF15003C4DB8 /* CALayer.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +374,7 @@
 				61231DC4289A619D007BEA61 /* SceneDelegate.swift in Sources */,
 				61231DF5289A7701007BEA61 /* LandingContracts.swift in Sources */,
 				61A19B57289D0D37003C4DB8 /* LandingScreenCell.swift in Sources */,
+				61A19BAB28A3AF15003C4DB8 /* CALayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61231DD9289A61A2007BEA61 /* MovieAppTests.swift in Sources */,
+				61A19BAC28A3AF15003C4DB8 /* CALayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61A19BAD28A3AF15003C4DB8 /* CALayer.swift in Sources */,
 				61231DE5289A61A2007BEA61 /* MovieAppUITestsLaunchTests.swift in Sources */,
 				61231DE3289A61A2007BEA61 /* MovieAppUITests.swift in Sources */,
 			);
