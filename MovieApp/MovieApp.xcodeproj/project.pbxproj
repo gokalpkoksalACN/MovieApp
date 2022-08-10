@@ -27,6 +27,7 @@
 		61A19BAB28A3AF15003C4DB8 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A19BAA28A3AF15003C4DB8 /* CALayer.swift */; };
 		61A19BAC28A3AF15003C4DB8 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A19BAA28A3AF15003C4DB8 /* CALayer.swift */; };
 		61A19BAD28A3AF15003C4DB8 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A19BAA28A3AF15003C4DB8 /* CALayer.swift */; };
+		61A19BB328A3C402003C4DB8 /* GenreContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A19BB228A3C402003C4DB8 /* GenreContracts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		61A19B6428A254E4003C4DB8 /* ArtistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewController.swift; sourceTree = "<group>"; };
 		61A19BA528A3AB80003C4DB8 /* AppleGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleGothic.ttf; sourceTree = "<group>"; };
 		61A19BAA28A3AF15003C4DB8 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		61A19BB228A3C402003C4DB8 /* GenreContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreContracts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				61A19B6228A254D6003C4DB8 /* GenreViewController.swift */,
+				61A19BB228A3C402003C4DB8 /* GenreContracts.swift */,
 			);
 			path = Genre;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				61231DC6289A619D007BEA61 /* LandingViewController.swift in Sources */,
 				61A19B6128A249B1003C4DB8 /* DiscoverViewController.swift in Sources */,
 				61231DC2289A619D007BEA61 /* AppDelegate.swift in Sources */,
+				61A19BB328A3C402003C4DB8 /* GenreContracts.swift in Sources */,
 				61A19B6328A254D6003C4DB8 /* GenreViewController.swift in Sources */,
 				61231DC4289A619D007BEA61 /* SceneDelegate.swift in Sources */,
 				61A19B57289D0D37003C4DB8 /* LandingScreenCell.swift in Sources */,

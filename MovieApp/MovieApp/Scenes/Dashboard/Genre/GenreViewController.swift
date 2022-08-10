@@ -7,23 +7,18 @@
 
 import UIKit
 
-class GenreViewController: UIViewController {
+class GenreViewController: UIViewController, GenreDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
 
-        view.backgroundColor = .red
+    func handleViewModelOutput(_ output: GenreViewModelOutput) {
+        // TODO: Implement
+//        switch output {
+//        case .updateGenres(let presentations):
+//        case .setLoading(let isAnimating):
+//        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
