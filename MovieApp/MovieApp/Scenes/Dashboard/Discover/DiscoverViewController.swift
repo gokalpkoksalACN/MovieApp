@@ -11,8 +11,6 @@ class DiscoverViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // TODO: Remove
-        view.backgroundColor = .blue
     }
 
 }

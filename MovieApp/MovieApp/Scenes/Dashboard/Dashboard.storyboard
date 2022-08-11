@@ -141,7 +141,7 @@
         <scene sceneID="AeX-Wn-Q4k">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lIz-Ae-LyH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Genre" id="PNv-uv-Xm4"/>
+                    <tabBarItem key="tabBarItem" title="Genre" image="icon_tab_genre" id="PNv-uv-Xm4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cJp-Jt-cBg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -158,6 +158,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_tab_genre" width="35" height="17.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
