@@ -12,7 +12,11 @@ class GenreTableViewCell: UITableViewCell {
     static let identifier = "GenreTableViewCell"
     
     @IBOutlet weak var bottomView: UIView!
-    @IBOutlet weak var genreImageView: UIImageView!
+    @IBOutlet weak var genreImageView: UIImageView! {
+        didSet {
+            genreImageView.contentMode = .scaleAspectFill
+        }
+    }
     @IBOutlet weak var genreTitleLabel: UILabel!
     
     override func awakeFromNib() {
@@ -23,7 +27,6 @@ class GenreTableViewCell: UITableViewCell {
     
     func setup(with presentation: GenrePresentation) {
         // TODO: Set image
-        genreImageView.image = UIImage(named: "breakingBad")
         genreTitleLabel.text = presentation.name
     }
     

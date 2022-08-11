@@ -49,6 +49,14 @@ extension GenreViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GenreTableViewCell.identifier, for: indexPath) as! GenreTableViewCell
         let presentation = presentations[indexPath.item]
+        
+        // TODO: Fix
+        if indexPath.item % 2 == 0 {
+            cell.genreImageView.image = UIImage(named: "genre_action")
+        } else {
+            cell.genreImageView.image = UIImage(named: "genre_adventure")
+        }
+        
         cell.setup(with: presentation)
         return cell
     }
