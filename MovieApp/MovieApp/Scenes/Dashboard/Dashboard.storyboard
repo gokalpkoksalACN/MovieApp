@@ -85,7 +85,7 @@
                                                     <rect key="frame" x="0.0" y="125" width="414" height="45"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ss2-r1-p16">
-                                                            <rect key="frame" x="9" y="10" width="84" height="25"/>
+                                                            <rect key="frame" x="17" y="10" width="84" height="25"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -95,7 +95,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="Ss2-r1-p16" secondAttribute="bottom" constant="10" id="XwR-bf-t1Q"/>
                                                         <constraint firstAttribute="height" constant="45" id="ar9-YZ-FGs"/>
-                                                        <constraint firstItem="Ss2-r1-p16" firstAttribute="leading" secondItem="bBC-HK-IyV" secondAttribute="leading" constant="9" id="qhK-Tj-JMQ"/>
+                                                        <constraint firstItem="Ss2-r1-p16" firstAttribute="leading" secondItem="bBC-HK-IyV" secondAttribute="leading" constant="17" id="qhK-Tj-JMQ"/>
                                                         <constraint firstItem="Ss2-r1-p16" firstAttribute="top" secondItem="bBC-HK-IyV" secondAttribute="top" constant="10" id="rWa-Np-mvS"/>
                                                     </constraints>
                                                 </view>

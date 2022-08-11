@@ -12,16 +12,11 @@ protocol GenreViewModelProtocol {
     func start()
 }
 
-protocol GenreDelegate {
+protocol GenreDelegate: AnyObject {
     func handleViewModelOutput(_ output: GenreViewModelOutput)
 }
 
 enum GenreViewModelOutput {
     case updateGenres([GenrePresentation])
-    case setLoading(Bool)
-}
-
-struct GenrePresentation {
-    let image: URL
-    let name: String
+    // case setLoading(Bool)
 }

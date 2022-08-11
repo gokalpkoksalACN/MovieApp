@@ -18,12 +18,13 @@ class GenreTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         bottomView.backgroundColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 0.65)
+        genreTitleLabel.font = UIFont(name: "AppleGothic", size: 22)
     }
     
-    func setup() {
-        // TODO: Set content with presentation
+    func setup(with presentation: GenrePresentation) {
+        // TODO: Set image
         genreImageView.image = UIImage(named: "breakingBad")
-        genreTitleLabel.text = "Animation"
+        genreTitleLabel.text = presentation.name
     }
     
 }

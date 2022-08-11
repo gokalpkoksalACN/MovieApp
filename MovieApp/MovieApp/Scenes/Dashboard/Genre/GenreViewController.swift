@@ -12,10 +12,15 @@ class GenreViewController: UIViewController, GenreDelegate {
     @IBOutlet private weak var tableView: UITableView!
     private var presentations: [GenrePresentation] = []
     
+    private let viewModel = GenreViewModel(service: MovieAppService())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Genres"
         configureTableView()
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont(name: "AppleGothic", size: 17)!]
+        viewModel.delegate = self
+        viewModel.start()
     }
     
     private func configureTableView() {
@@ -25,10 +30,12 @@ class GenreViewController: UIViewController, GenreDelegate {
 
     func handleViewModelOutput(_ output: GenreViewModelOutput) {
         // TODO: Implement
-//        switch output {
-//        case .updateGenres(let presentations):
-//        case .setLoading(let isAnimating):
-//        }
+        switch output {
+        case .updateGenres(let presentations):
+            self.presentations = presentations
+            tableView.reloadData()
+        //case .setLoading(let isAnimating):
+        }
     }
     
 }
@@ -40,16 +47,14 @@ extension GenreViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: inject corresponding presentation object to the cell and remove lines 47 and 48.
         let cell = tableView.dequeueReusableCell(withIdentifier: GenreTableViewCell.identifier, for: indexPath) as! GenreTableViewCell
-        cell.backgroundColor = .green
-        cell.genreImageView.image = UIImage(named: "breakingBad")
+        let presentation = presentations[indexPath.item]
+        cell.setup(with: presentation)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: return presentation count
-        return 5
+        return presentations.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
