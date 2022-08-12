@@ -16,6 +16,7 @@
 		610FB3E428A673E000FD12EF /* ArtistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FB3E328A673E000FD12EF /* ArtistsViewModel.swift */; };
 		610FB3E828A674EC00FD12EF /* ArtistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FB3E728A674EC00FD12EF /* ArtistsResponse.swift */; };
 		610FB3EA28A6750D00FD12EF /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FB3E928A6750D00FD12EF /* Artist.swift */; };
+		610FB3EC28A687BA00FD12EF /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FB3EB28A687BA00FD12EF /* UIImageView.swift */; };
 		61231DC2289A619D007BEA61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61231DC1289A619D007BEA61 /* AppDelegate.swift */; };
 		61231DC4289A619D007BEA61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61231DC3289A619D007BEA61 /* SceneDelegate.swift */; };
 		61231DC6289A619D007BEA61 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61231DC5289A619D007BEA61 /* LandingViewController.swift */; };
@@ -75,6 +76,7 @@
 		610FB3E328A673E000FD12EF /* ArtistsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewModel.swift; sourceTree = "<group>"; };
 		610FB3E728A674EC00FD12EF /* ArtistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsResponse.swift; sourceTree = "<group>"; };
 		610FB3E928A6750D00FD12EF /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		610FB3EB28A687BA00FD12EF /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		61231DBE289A619D007BEA61 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61231DC1289A619D007BEA61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61231DC3289A619D007BEA61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				61A19BAA28A3AF15003C4DB8 /* CALayer.swift */,
+				610FB3EB28A687BA00FD12EF /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				610FB3E228A6736200FD12EF /* ArtistPresentation.swift in Sources */,
 				61A19B6128A249B1003C4DB8 /* DiscoverViewController.swift in Sources */,
 				61848B2928A5169A00480351 /* Genre.swift in Sources */,
+				610FB3EC28A687BA00FD12EF /* UIImageView.swift in Sources */,
 				610FB3EA28A6750D00FD12EF /* Artist.swift in Sources */,
 				61231DC2289A619D007BEA61 /* AppDelegate.swift in Sources */,
 				610FB3D628A5207A00FD12EF /* GenrePresentation.swift in Sources */,

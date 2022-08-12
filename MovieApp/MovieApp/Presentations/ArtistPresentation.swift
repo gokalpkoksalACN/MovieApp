@@ -13,6 +13,6 @@ struct ArtistPresentation {
     
     init(artist: Artist) {
         self.name = artist.name
-        self.image = artist.image
+        self.image = URL(string: artist.imagePath)
     }
 }

@@ -29,5 +29,8 @@ class ArtistCollectionViewCell: UICollectionViewCell {
     
     func setup(with presentation: ArtistPresentation) {
         nameLabel.text = presentation.name
+        if let imageURL = presentation.image {
+            imageView.setKingfisherImage(with: imageURL)
+        }
     }
 }
