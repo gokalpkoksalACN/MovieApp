@@ -11,6 +11,9 @@
 		610FB3D328A51E7800FD12EF /* GenreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FB3D228A51E7800FD12EF /* GenreViewModel.swift */; };
 		610FB3D628A5207A00FD12EF /* GenrePresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FB3D528A5207A00FD12EF /* GenrePresentation.swift */; };
 		610FB3DE28A641A300FD12EF /* ArtistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FB3DD28A641A300FD12EF /* ArtistCollectionViewCell.swift */; };
+		610FB3E028A672EA00FD12EF /* ArtistsContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FB3DF28A672EA00FD12EF /* ArtistsContracts.swift */; };
+		610FB3E228A6736200FD12EF /* ArtistPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FB3E128A6736200FD12EF /* ArtistPresentation.swift */; };
+		610FB3E428A673E000FD12EF /* ArtistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FB3E328A673E000FD12EF /* ArtistsViewModel.swift */; };
 		61231DC2289A619D007BEA61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61231DC1289A619D007BEA61 /* AppDelegate.swift */; };
 		61231DC4289A619D007BEA61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61231DC3289A619D007BEA61 /* SceneDelegate.swift */; };
 		61231DC6289A619D007BEA61 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61231DC5289A619D007BEA61 /* LandingViewController.swift */; };
@@ -65,6 +68,9 @@
 		610FB3D228A51E7800FD12EF /* GenreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewModel.swift; sourceTree = "<group>"; };
 		610FB3D528A5207A00FD12EF /* GenrePresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenrePresentation.swift; sourceTree = "<group>"; };
 		610FB3DD28A641A300FD12EF /* ArtistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCollectionViewCell.swift; sourceTree = "<group>"; };
+		610FB3DF28A672EA00FD12EF /* ArtistsContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsContracts.swift; sourceTree = "<group>"; };
+		610FB3E128A6736200FD12EF /* ArtistPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistPresentation.swift; sourceTree = "<group>"; };
+		610FB3E328A673E000FD12EF /* ArtistsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewModel.swift; sourceTree = "<group>"; };
 		61231DBE289A619D007BEA61 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61231DC1289A619D007BEA61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61231DC3289A619D007BEA61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				610FB3D528A5207A00FD12EF /* GenrePresentation.swift */,
+				610FB3E128A6736200FD12EF /* ArtistPresentation.swift */,
 			);
 			path = Presentations;
 			sourceTree = "<group>";
@@ -248,10 +255,10 @@
 		61A19B5E28A24973003C4DB8 /* Genre */ = {
 			isa = PBXGroup;
 			children = (
-				61A19B6228A254D6003C4DB8 /* GenreViewController.swift */,
 				61A19BB228A3C402003C4DB8 /* GenreContracts.swift */,
-				61A19BB428A3C96E003C4DB8 /* GenreTableViewCell.swift */,
+				61A19B6228A254D6003C4DB8 /* GenreViewController.swift */,
 				610FB3D228A51E7800FD12EF /* GenreViewModel.swift */,
+				61A19BB428A3C96E003C4DB8 /* GenreTableViewCell.swift */,
 			);
 			path = Genre;
 			sourceTree = "<group>";
@@ -259,7 +266,9 @@
 		61A19B5F28A2497F003C4DB8 /* Artists */ = {
 			isa = PBXGroup;
 			children = (
+				610FB3DF28A672EA00FD12EF /* ArtistsContracts.swift */,
 				61A19B6428A254E4003C4DB8 /* ArtistsViewController.swift */,
+				610FB3E328A673E000FD12EF /* ArtistsViewModel.swift */,
 				610FB3DD28A641A300FD12EF /* ArtistCollectionViewCell.swift */,
 			);
 			path = Artists;
@@ -549,11 +558,14 @@
 			files = (
 				61A19B6528A254E4003C4DB8 /* ArtistsViewController.swift in Sources */,
 				61231DC6289A619D007BEA61 /* LandingViewController.swift in Sources */,
+				610FB3E428A673E000FD12EF /* ArtistsViewModel.swift in Sources */,
+				610FB3E228A6736200FD12EF /* ArtistPresentation.swift in Sources */,
 				61A19B6128A249B1003C4DB8 /* DiscoverViewController.swift in Sources */,
 				61848B2928A5169A00480351 /* Genre.swift in Sources */,
 				61231DC2289A619D007BEA61 /* AppDelegate.swift in Sources */,
 				610FB3D628A5207A00FD12EF /* GenrePresentation.swift in Sources */,
 				61A19BB328A3C402003C4DB8 /* GenreContracts.swift in Sources */,
+				610FB3E028A672EA00FD12EF /* ArtistsContracts.swift in Sources */,
 				610FB3DE28A641A300FD12EF /* ArtistCollectionViewCell.swift in Sources */,
 				61A19B6328A254D6003C4DB8 /* GenreViewController.swift in Sources */,
 				61231DC4289A619D007BEA61 /* SceneDelegate.swift in Sources */,

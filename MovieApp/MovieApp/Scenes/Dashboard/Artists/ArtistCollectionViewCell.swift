@@ -25,4 +25,8 @@ class ArtistCollectionViewCell: UICollectionViewCell {
             nameLabel.textColor = UIColor(red: 74/255, green: 74/255, blue: 74/255, alpha: 1.0)
         }
     }
+    
+    func setup(with presentation: ArtistPresentation) {
+        // TODO: implement
+    }
 }
