@@ -7,6 +7,7 @@
 
 import UIKit
 
+// TODO: Implement search view
 class GenreViewController: UIViewController, GenreDelegate {
 
     @IBOutlet private weak var tableView: UITableView!
