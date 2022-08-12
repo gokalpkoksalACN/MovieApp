@@ -56,20 +56,49 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S3J-ut-Ljo">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9OM-fI-mve">
-                                    <size key="itemSize" width="128" height="128"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="9OM-fI-mve">
+                                    <size key="itemSize" width="192" height="193"/>
+                                    <size key="estimatedItemSize" width="192" height="193"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="mi5-c9-Dc2">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ArtistCollectionViewCell" id="mi5-c9-Dc2" customClass="ArtistCollectionViewCell" customModule="MovieApp" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="10" width="110" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Rgl-YI-ozc">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="110" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wtL-gx-ofY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="110" id="vDQ-c3-EoC"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEg-YT-Gef">
+                                                    <rect key="frame" x="0.0" y="114" width="110" height="42"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="UEg-YT-Gef" firstAttribute="top" secondItem="wtL-gx-ofY" secondAttribute="bottom" constant="4" id="7wN-8p-F6Y"/>
+                                                <constraint firstAttribute="bottom" secondItem="UEg-YT-Gef" secondAttribute="bottom" constant="4" id="8FE-1X-y42"/>
+                                                <constraint firstItem="wtL-gx-ofY" firstAttribute="top" secondItem="Rgl-YI-ozc" secondAttribute="top" id="HLE-Ow-eed"/>
+                                                <constraint firstItem="wtL-gx-ofY" firstAttribute="leading" secondItem="Rgl-YI-ozc" secondAttribute="leading" id="QCm-bI-Q8z"/>
+                                                <constraint firstAttribute="trailing" secondItem="wtL-gx-ofY" secondAttribute="trailing" id="a2l-2C-Bab"/>
+                                                <constraint firstAttribute="trailing" secondItem="UEg-YT-Gef" secondAttribute="trailing" id="aff-fT-4tQ"/>
+                                                <constraint firstItem="UEg-YT-Gef" firstAttribute="leading" secondItem="Rgl-YI-ozc" secondAttribute="leading" id="xo1-cM-jex"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="110" height="160"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="wtL-gx-ofY" id="Vsk-gT-LSC"/>
+                                            <outlet property="nameLabel" destination="UEg-YT-Gef" id="10d-kO-wON"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
