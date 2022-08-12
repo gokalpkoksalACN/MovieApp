@@ -102,6 +102,11 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="fdf-xN-2mU">
+                                <rect key="frame" x="0.0" y="0.0" width="93" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" name="AccentColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zHe-0g-ESs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -114,6 +119,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Fti-jK-sQG"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="fdf-xN-2mU" id="G8o-La-Zph"/>
                         <outlet property="collectionView" destination="S3J-ut-Ljo" id="2dv-JN-yH3"/>
                     </connections>
                 </viewController>
@@ -181,7 +187,7 @@
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="pdk-EB-JzM">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="91" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" name="AccentColor"/>
                             </activityIndicatorView>

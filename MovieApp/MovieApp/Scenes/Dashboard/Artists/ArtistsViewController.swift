@@ -11,6 +11,11 @@ import UIKit
 class ArtistsViewController: UIViewController, ArtistsDelegate {
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView! {
+        didSet {
+            activityIndicator.hidesWhenStopped = true
+        }
+    }
     
     private let viewModel = ArtistsViewModel(service: MovieAppService())
     private var presentations: [ArtistPresentation] = []
@@ -30,7 +35,11 @@ class ArtistsViewController: UIViewController, ArtistsDelegate {
             self.presentations = presentations
             collectionView.reloadData()
         case .setLoading(let isAnimating):
-            print("isAnimating = ", isAnimating)
+            if isAnimating {
+                activityIndicator.startAnimating()
+            } else {
+                activityIndicator.stopAnimating()
+            }
         }
     }
 
