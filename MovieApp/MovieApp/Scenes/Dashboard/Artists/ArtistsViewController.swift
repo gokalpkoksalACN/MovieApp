@@ -65,6 +65,7 @@ extension ArtistsViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtistCollectionViewCell.identifier, for: indexPath) as! ArtistCollectionViewCell
         let presentation = presentations[indexPath.item]
         cell.setup(with: presentation)
+        cell.backgroundColor = .white
         return cell
     }
     
