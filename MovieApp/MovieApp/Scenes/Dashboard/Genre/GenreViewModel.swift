@@ -18,19 +18,23 @@ class GenreViewModel: GenreViewModelProtocol {
     }
     
     func start() {
-        delegate?.handleViewModelOutput(.setLoading(true))
+        notify(.setLoading(true))
         service.getGenreList { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let response):
-                self.delegate?.handleViewModelOutput(.setLoading(false))
+                self.notify(.setLoading(false))
                 let presentations = response.genres.map { GenrePresentation(genre: $0) }
-                self.delegate?.handleViewModelOutput(.updateGenres(presentations))
+                self.notify(.updateGenres(presentations))
             case .failure(let error):
-                self.delegate?.handleViewModelOutput(.setLoading(false))
+                self.notify(.setLoading(false))
                 print(error)
             }
         }
     }
 
+    private func notify(_ output: GenreViewModelOutput) {
+        delegate?.handleViewModelOutput(output)
+    }
+    
 }
