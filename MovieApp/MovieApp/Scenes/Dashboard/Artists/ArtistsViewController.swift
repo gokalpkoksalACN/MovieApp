@@ -7,16 +7,31 @@
 
 import UIKit
 
-// TODO: Add viewModel and service
-class ArtistsViewController: UIViewController {
+// TODO: add pagination and images of artists
+class ArtistsViewController: UIViewController, ArtistsDelegate {
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    
+    private let viewModel = ArtistsViewModel(service: MovieAppService())
+    private var presentations: [ArtistPresentation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Artists"
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont(name: "AppleGothic", size: 17)!]
         configureContent()
+        viewModel.delegate = self
+        viewModel.start()
+    }
+    
+    func handleViewModelOutput(_ output: ArtistViewModelOutput) {
+        switch output {
+        case .updateArtists(let presentations):
+            self.presentations = presentations
+            collectionView.reloadData()
+        case .setLoading(let isAnimating):
+            print("isAnimating = ", isAnimating)
+        }
     }
 
     private func configureContent() {
@@ -42,14 +57,14 @@ extension ArtistsViewController: UICollectionViewDelegate {
 
 extension ArtistsViewController: UICollectionViewDataSource {
     
-    // TODO: Fix
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return presentations.count
     }
     
-    // TODO: Fix
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtistCollectionViewCell.identifier, for: indexPath) as! ArtistCollectionViewCell
+        let presentation = presentations[indexPath.item]
+        cell.setup(with: presentation)
         return cell
     }
     

@@ -8,11 +8,11 @@
 import Foundation
 
 protocol ArtistsViewModelProtocol {
-    var delegate: ArtistDelegate? { get set }
+    var delegate: ArtistsDelegate? { get set }
     func start()
 }
 
-protocol ArtistDelegate: AnyObject {
+protocol ArtistsDelegate: AnyObject {
     func handleViewModelOutput(_ output: ArtistViewModelOutput)
 }
 

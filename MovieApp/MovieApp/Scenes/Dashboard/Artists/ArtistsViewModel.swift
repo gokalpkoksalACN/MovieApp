@@ -9,10 +9,30 @@ import Foundation
 
 final class ArtistsViewModel: ArtistsViewModelProtocol {
     
-    weak var delegate: ArtistDelegate?
+    weak var delegate: ArtistsDelegate?
+    private let service: MovieAppServiceProtocol
     
-    func start() {
-        // TODO: Implement
+    init(service: MovieAppServiceProtocol) {
+        self.service = service
     }
     
+    func start() {
+        service.getArtists { [weak self] result in
+            guard let self = self else { return }
+            self.notify(.setLoading(true))
+            switch result {
+            case .success(let response):
+                self.notify(.setLoading(false))
+                let presentations = response.artists.map { ArtistPresentation(artist: $0) }
+                self.notify(.updateArtists(presentations))
+            case .failure(let error):
+                self.notify(.setLoading(false))
+                print(error)
+            }
+        }
+    }
+    
+    private func notify(_ output: ArtistViewModelOutput) {
+        delegate?.handleViewModelOutput(output)
+    }
 }

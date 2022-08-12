@@ -27,6 +27,6 @@ class ArtistCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(with presentation: ArtistPresentation) {
-        // TODO: implement
+        nameLabel.text = presentation.name
     }
 }

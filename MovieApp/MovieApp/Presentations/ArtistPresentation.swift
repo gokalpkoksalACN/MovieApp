@@ -10,4 +10,9 @@ import Foundation
 struct ArtistPresentation {
     let name: String
     let image: URL?
+    
+    init(artist: Artist) {
+        self.name = artist.name
+        self.image = artist.image
+    }
 }
