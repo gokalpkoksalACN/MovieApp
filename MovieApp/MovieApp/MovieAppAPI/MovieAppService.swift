@@ -10,6 +10,7 @@ import Alamofire
 
 protocol MovieAppServiceProtocol {
     func getGenreList(completion: @escaping (AFResult<GenreResponse>) -> Void)
+    func getArtists(completion: @escaping (AFResult<ArtistsResponse>) -> Void)
 }
 
 final class MovieAppService: MovieAppServiceProtocol {
@@ -27,6 +28,26 @@ final class MovieAppService: MovieAppServiceProtocol {
                     let decoder = JSONDecoder()
                     let results = try decoder.decode(GenreResponse.self, from: data)
                     let response = GenreResponse(genres: results.genres)
+                    completion(.success(response))
+                } catch {
+                    print(error)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func getArtists(completion: @escaping (AFResult<ArtistsResponse>) -> Void) {
+        let path = "person/popular"
+        let urlString = getUrlString(for: path)
+        AF.request(urlString).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder()
+                    let results = try decoder.decode(ArtistsResponse.self, from: data)
+                    let response = ArtistsResponse(artists: results.artists)
                     completion(.success(response))
                 } catch {
                     print(error)
