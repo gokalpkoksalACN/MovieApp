@@ -7,12 +7,43 @@
 
 import UIKit
 
+// TODO: Add viewModel and service
 class ArtistsViewController: UIViewController {
 
+    @IBOutlet private weak var collectionView: UICollectionView! {
+        didSet {
+            collectionView.delegate = self
+            collectionView.dataSource = self
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .green
     }
 
+}
+
+extension ArtistsViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // TODO: Implement
+    }
+    
+}
+
+extension ArtistsViewController: UICollectionViewDataSource {
+    
+    // TODO: Fix
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    // TODO: Fix
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.backgroundColor = .green
+        return cell
+    }
+    
+    
 }
