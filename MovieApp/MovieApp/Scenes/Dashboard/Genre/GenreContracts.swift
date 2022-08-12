@@ -18,5 +18,5 @@ protocol GenreDelegate: AnyObject {
 
 enum GenreViewModelOutput {
     case updateGenres([GenrePresentation])
-    // case setLoading(Bool)
+    case setLoading(Bool)
 }

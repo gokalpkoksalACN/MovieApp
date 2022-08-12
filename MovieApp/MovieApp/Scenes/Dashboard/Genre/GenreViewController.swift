@@ -10,6 +10,12 @@ import UIKit
 class GenreViewController: UIViewController, GenreDelegate {
 
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView! {
+        didSet {
+            activityIndicator.hidesWhenStopped = true
+        }
+    }
+    
     private var presentations: [GenrePresentation] = []
     
     private let viewModel = GenreViewModel(service: MovieAppService())
@@ -29,12 +35,16 @@ class GenreViewController: UIViewController, GenreDelegate {
     }
 
     func handleViewModelOutput(_ output: GenreViewModelOutput) {
-        // TODO: Implement
         switch output {
         case .updateGenres(let presentations):
             self.presentations = presentations
             tableView.reloadData()
-        //case .setLoading(let isAnimating):
+        case .setLoading(let isAnimating):
+            if isAnimating {
+                activityIndicator.startAnimating()
+            } else {
+                activityIndicator.stopAnimating()
+            }
         }
     }
     
