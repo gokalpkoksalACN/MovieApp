@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="rFj-a3-qtS" kind="relationship" relationship="viewControllers" id="PUh-pL-Qww"/>
+                        <segue destination="qO5-aB-xjm" kind="relationship" relationship="viewControllers" id="PUh-pL-Qww"/>
                         <segue destination="lIz-Ae-LyH" kind="relationship" relationship="viewControllers" id="UWK-yU-ubZ"/>
                         <segue destination="xma-X4-TsO" kind="relationship" relationship="viewControllers" id="qst-AM-HiO"/>
                     </connections>
@@ -29,21 +29,36 @@
             </objects>
             <point key="canvasLocation" x="157" y="-48"/>
         </scene>
-        <!--Discover-->
+        <!--Discover View Controller-->
         <scene sceneID="DFn-MX-coA">
             <objects>
                 <viewController id="rFj-a3-qtS" customClass="DiscoverViewController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9cu-sg-15N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IxF-Vq-QHc">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dgF-Gq-GKZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IxF-Vq-QHc" firstAttribute="top" secondItem="dgF-Gq-GKZ" secondAttribute="top" id="Ebg-3H-816"/>
+                            <constraint firstItem="IxF-Vq-QHc" firstAttribute="leading" secondItem="dgF-Gq-GKZ" secondAttribute="leading" id="Nau-zW-Mto"/>
+                            <constraint firstItem="dgF-Gq-GKZ" firstAttribute="trailing" secondItem="IxF-Vq-QHc" secondAttribute="trailing" id="cRi-zD-T9u"/>
+                            <constraint firstItem="dgF-Gq-GKZ" firstAttribute="bottom" secondItem="IxF-Vq-QHc" secondAttribute="bottom" id="ujW-7V-7V4"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Discover" id="fKy-Pf-K5a"/>
+                    <navigationItem key="navigationItem" id="rjc-HC-8rL"/>
+                    <connections>
+                        <outlet property="tableView" destination="IxF-Vq-QHc" id="Ue5-2h-qhA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5B-10-xqg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-743" y="682"/>
+            <point key="canvasLocation" x="166.66666666666669" y="681.69642857142856"/>
         </scene>
         <!--Artists View Controller-->
         <scene sceneID="iCP-Th-rAc">
@@ -125,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZe-t2-AT3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2876.811594202899" y="681.69642857142856"/>
+            <point key="canvasLocation" x="3786.9565217391309" y="681.69642857142856"/>
         </scene>
         <!--Genre View Controller-->
         <scene sceneID="n5m-1c-xw9">
@@ -209,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5UD-My-3vK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1066.6666666666667" y="681.69642857142856"/>
+            <point key="canvasLocation" x="1976.8115942028987" y="681.69642857142856"/>
         </scene>
         <!--Genre-->
         <scene sceneID="AeX-Wn-Q4k">
@@ -228,7 +243,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WMj-2D-KlL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="156.52173913043478" y="681.69642857142856"/>
+            <point key="canvasLocation" x="1065.217391304348" y="681.69642857142856"/>
         </scene>
         <!--Artists-->
         <scene sceneID="4L4-99-Xo8">
@@ -247,7 +262,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XR6-kY-cn1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1966.6666666666667" y="681.69642857142856"/>
+            <point key="canvasLocation" x="2876.811594202899" y="681.69642857142856"/>
+        </scene>
+        <!--Discover-->
+        <scene sceneID="vcl-Po-SHz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qO5-aB-xjm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Discover" id="fKy-Pf-K5a"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e0b-fm-Cl0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rFj-a3-qtS" kind="relationship" relationship="rootViewController" id="4VX-hs-dib"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JWo-Ie-a2r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-743.47826086956525" y="681.69642857142856"/>
         </scene>
     </scenes>
     <resources>
