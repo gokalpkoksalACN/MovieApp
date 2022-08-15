@@ -234,7 +234,7 @@
         <scene sceneID="4L4-99-Xo8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xma-X4-TsO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Artists" id="q7c-1C-DZY"/>
+                    <tabBarItem key="tabBarItem" title="Artists" image="icon_tab_artists" id="q7c-1C-DZY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DRM-sH-JSu">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -251,6 +251,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_tab_artists" width="29" height="26"/>
         <image name="icon_tab_genre" width="35" height="17.5"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
