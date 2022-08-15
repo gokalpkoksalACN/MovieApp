@@ -16,7 +16,7 @@ class LandingViewController: UIViewController {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var buttonStackView: UIStackView!
     
-    private let backgroundImageNames = ["breakingBad", "friends", "walkingDead"]
+    private let backgroundImageNames = ["walkingDead", "friends", "breakingBad"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
