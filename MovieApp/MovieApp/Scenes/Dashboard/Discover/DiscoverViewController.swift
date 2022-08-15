@@ -13,8 +13,11 @@ class DiscoverViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Discover"
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.allowsSelection = false
+        tableView.register(MovieCellHeaderView.self, forHeaderFooterViewReuseIdentifier: MovieCellHeaderView.identifier)
     }
 
 }
@@ -28,17 +31,39 @@ extension DiscoverViewController: UITableViewDelegate {
 }
 
 extension DiscoverViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
     
     // TODO: Fix
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 1
     }
     
     // TODO: Fix
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.backgroundColor = .systemPink
+        cell.backgroundColor = .green
         return cell
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: MovieCellHeaderView.identifier) as! MovieCellHeaderView
+        switch section {
+        case 0:
+            header.setup(with: "Most Popular")
+        case 1:
+            header.setup(with: "Most Recent")
+        case 2:
+            header.setup(with: "Coming Soon")
+        default:
+            return header
+        }
+        header.backgroundColor = .systemPink
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
 }
