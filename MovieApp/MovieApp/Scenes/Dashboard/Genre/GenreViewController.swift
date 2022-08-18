@@ -23,18 +23,12 @@ class GenreViewController: UIViewController, GenreDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Genres"
+        setTitle()
         configureTableView()
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont(name: "AppleGothic", size: 17)!]
         viewModel.delegate = self
         viewModel.start()
     }
     
-    private func configureTableView() {
-        tableView.dataSource = self
-        tableView.delegate = self
-    }
-
     func handleViewModelOutput(_ output: GenreViewModelOutput) {
         switch output {
         case .updateGenres(let presentations):
@@ -47,6 +41,16 @@ class GenreViewController: UIViewController, GenreDelegate {
                 activityIndicator.stopAnimating()
             }
         }
+    }
+    
+    private func setTitle() {
+        title = "Genres"
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont(name: "AppleGothic", size: 17)!]
+    }
+    
+    private func configureTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
 }

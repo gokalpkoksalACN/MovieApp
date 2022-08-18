@@ -19,7 +19,7 @@ class DiscoverViewController: UIViewController, DiscoverDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Discover"
+        setTitle()
         configureTableView()
         viewModel.delegate = self
         viewModel.start()
@@ -42,6 +42,11 @@ class DiscoverViewController: UIViewController, DiscoverDelegate {
         }
     }
     
+    private func setTitle() {
+        title = "Discover"
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont(name: "AppleGothic", size: 17)!]
+    }
+    
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -51,6 +56,7 @@ class DiscoverViewController: UIViewController, DiscoverDelegate {
         tableView.register(DiscoverTableViewCell.nib(), forCellReuseIdentifier: DiscoverTableViewCell.identifier)
         tableView.separatorStyle = .none
     }
+    
 }
 
 extension DiscoverViewController: UITableViewDelegate {

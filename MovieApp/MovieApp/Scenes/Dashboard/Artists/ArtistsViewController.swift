@@ -22,8 +22,7 @@ class ArtistsViewController: UIViewController, ArtistsDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Artists"
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont(name: "AppleGothic", size: 17)!]
+        setTitle()
         configureContent()
         viewModel.delegate = self
         viewModel.start()
@@ -43,6 +42,11 @@ class ArtistsViewController: UIViewController, ArtistsDelegate {
         }
     }
 
+    private func setTitle() {
+        title = "Artists"
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont(name: "AppleGothic", size: 17)!]
+    }
+    
     private func configureContent() {
         configureCollectionView()
     }
