@@ -17,6 +17,7 @@ class DiscoverViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
+        tableView.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 238/255)
         tableView.register(MovieCellHeaderView.self, forHeaderFooterViewReuseIdentifier: MovieCellHeaderView.identifier)
     }
 
@@ -59,7 +60,6 @@ extension DiscoverViewController: UITableViewDataSource {
         default:
             return header
         }
-        header.backgroundColor = .systemPink
         return header
     }
     
