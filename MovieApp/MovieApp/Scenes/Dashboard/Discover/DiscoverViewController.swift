@@ -11,19 +11,10 @@ class DiscoverViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
-    // TODO: get sections from api
-    private let discoverSections: [DiscoverSectionPresentation] = [
-        DiscoverSectionPresentation(title: "Most Popular",
-                                    movies: [
-                                        MoviePresentation(title: "Batman"),
-                                        MoviePresentation(title: "Superman")
-                                    ]),
-        DiscoverSectionPresentation(title: "Upcoming Soon",
-                                    movies: [
-                                        MoviePresentation(title: "Thor"),
-                                        MoviePresentation(title: "Arrow")
-                                    ])
-    ]
+    // TODO: get movies from api
+    private let popularMovies: [MoviePresentation] = []
+    private let upcomingMovies: [MoviePresentation] = []
+    private let recentMovies: [MoviePresentation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +40,7 @@ extension DiscoverViewController: UITableViewDelegate {
 
 extension DiscoverViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return discoverSections.count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,13 +49,31 @@ extension DiscoverViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DiscoverTableViewCell.identifier, for: indexPath) as! DiscoverTableViewCell
-        cell.configure(with: discoverSections[indexPath.item])
+        switch indexPath.section {
+        case 0:
+            cell.configure(with: popularMovies)
+        case 1:
+            cell.configure(with: recentMovies)
+        case 2:
+            cell.configure(with: upcomingMovies)
+        default:
+            break
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: MovieCellHeaderView.identifier) as! MovieCellHeaderView
-        header.setup(with: discoverSections[section].title)
+        switch section {
+        case 0:
+            header.setup(with: "Most Popular")
+        case 1:
+            header.setup(with: "Most Recent")
+        case 2:
+            header.setup(with: "Upcoming Movies")
+        default:
+            break
+        }
         return header
     }
     

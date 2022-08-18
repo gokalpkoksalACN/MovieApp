@@ -10,4 +10,10 @@ import Foundation
 // TODO: add image and duration
 struct MoviePresentation {
     let title: String
+    let image: URL?
+    
+    init(title: String, imagePath: String) {
+        self.title = title
+        self.image = URL(string: imagePath)
+    }
 }

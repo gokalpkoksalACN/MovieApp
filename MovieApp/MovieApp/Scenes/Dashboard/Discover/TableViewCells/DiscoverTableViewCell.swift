@@ -31,8 +31,8 @@ class DiscoverTableViewCell: UITableViewCell {
         collectionView.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 238/255)
     }
     
-    func configure(with discoverSectionPresentation: DiscoverSectionPresentation ) {
-        self.movies = discoverSectionPresentation.movies
+    func configure(with movies: [MoviePresentation]) {
+        self.movies = movies
         collectionView.reloadData()
     }
 }
