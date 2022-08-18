@@ -7,7 +7,6 @@
 
 import Foundation
 
-// TODO: Add Image
 struct GenrePresentation {
     let name: String
     

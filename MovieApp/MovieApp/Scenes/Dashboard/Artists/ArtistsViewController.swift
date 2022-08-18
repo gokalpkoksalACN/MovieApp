@@ -7,7 +7,7 @@
 
 import UIKit
 
-// TODO: add pagination and images of artists
+// TODO: implement pagination
 class ArtistsViewController: UIViewController, ArtistsDelegate {
 
     @IBOutlet private weak var collectionView: UICollectionView!

@@ -69,8 +69,6 @@ class MovieCellHeaderView: UITableViewHeaderFooterView {
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
         
-        
-
     }
     
     required init?(coder: NSCoder) {

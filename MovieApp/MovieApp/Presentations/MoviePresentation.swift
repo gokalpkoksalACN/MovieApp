@@ -7,7 +7,7 @@
 
 import Foundation
 
-// TODO: add image and duration
+// TODO: add duration
 struct MoviePresentation {
     let title: String
     let image: URL?
