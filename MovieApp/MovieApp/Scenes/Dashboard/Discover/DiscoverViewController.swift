@@ -7,18 +7,42 @@
 
 import UIKit
 
-class DiscoverViewController: UIViewController {
+class DiscoverViewController: UIViewController, DiscoverDelegate {
 
     @IBOutlet private weak var tableView: UITableView!
     
-    // TODO: get movies from api
-    private let popularMovies: [MoviePresentation] = []
-    private let upcomingMovies: [MoviePresentation] = []
-    private let recentMovies: [MoviePresentation] = []
+    private var popularMovies: [MoviePresentation] = []
+    private var upcomingMovies: [MoviePresentation] = []
+    private var recentMovies: [MoviePresentation] = []
+    
+    private let viewModel = DiscoverViewModel(service: MovieAppService())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Discover"
+        configureTableView()
+        viewModel.delegate = self
+        viewModel.start()
+    }
+
+    func handleViewModelOutput(_ output: DiscoverViewModelOutput) {
+        switch output {
+        case .updatePopularMovies(let presentations):
+            self.popularMovies = presentations
+            tableView.reloadData()
+        case .updateRecentMovies(let presentations):
+            self.recentMovies = presentations
+            tableView.reloadData()
+        case .updateUpcomingMovies(let presentations):
+            self.upcomingMovies = presentations
+            tableView.reloadData()
+        case .setLoading(let isAnimating):
+            // TODO: Implement loading animation
+            print(isAnimating)
+        }
+    }
+    
+    private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
@@ -27,7 +51,6 @@ class DiscoverViewController: UIViewController {
         tableView.register(DiscoverTableViewCell.nib(), forCellReuseIdentifier: DiscoverTableViewCell.identifier)
         tableView.separatorStyle = .none
     }
-
 }
 
 extension DiscoverViewController: UITableViewDelegate {

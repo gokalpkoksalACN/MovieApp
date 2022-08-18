@@ -21,8 +21,22 @@ class MovieCollectionViewCell: UICollectionViewCell {
             movieImageView.contentMode = .scaleAspectFill
         }
     }
-    @IBOutlet private weak var movieTitleLabel: UILabel!
-    @IBOutlet private weak var movieDurationTitle: UILabel!
+    @IBOutlet private weak var movieTitleLabel: UILabel! {
+        didSet {
+            // TODO: Fix number of lines
+            movieTitleLabel.font = UIFont(name: "AppleGothic", size: 14)
+            movieTitleLabel.textColor = UIColor(red: 74/255, green: 74/255, blue: 74/255, alpha: 1.0)
+        }
+    }
+    
+    @IBOutlet private weak var movieDurationTitle: UILabel! {
+        didSet{
+            // TODO: Fix duration
+            movieDurationTitle.text = "1h, 25mins"
+            movieDurationTitle.font = UIFont(name: "AppleGothic", size: 12)
+            movieDurationTitle.textColor = UIColor(red: 155/255, green: 155/255, blue: 155/255, alpha: 1.0)
+        }
+    }
     
     
     override func awakeFromNib() {
@@ -30,9 +44,10 @@ class MovieCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
-    // TODO: fix image
     func configure(with movie: MoviePresentation) {
-        movieImageView.image = UIImage(named: "walkingDead")
+        if let image = movie.image {
+            movieImageView.setKingfisherImage(with: image)
+        }
         movieTitleLabel.text = movie.title
     }
 }

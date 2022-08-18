@@ -16,4 +16,9 @@ struct MoviePresentation {
         self.title = title
         self.image = URL(string: imagePath)
     }
+    
+    init(movie: Movie) {
+        self.title = movie.title
+        self.image = URL(string: movie.imagePath)
+    }
 }
