@@ -21,6 +21,7 @@ class LandingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureContent()
+        navigationController?.navigationBar.isHidden = true
     }
     @objc func explorePressed(_ sender: Any) {
         performSegue(withIdentifier: "landingToDashboard", sender: nil)
