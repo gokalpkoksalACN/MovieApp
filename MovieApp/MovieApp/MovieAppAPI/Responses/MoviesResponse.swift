@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct PopularMoviesResponse: Decodable {
+struct MoviesResponse: Decodable {
     
-    enum PopularMoviesCodingKeys: String, CodingKey {
+    enum MoviesCodingKeys: String, CodingKey {
         case movies = "results"
     }
     
@@ -20,7 +20,7 @@ struct PopularMoviesResponse: Decodable {
     }
     
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: PopularMoviesCodingKeys.self)
+        let container = try decoder.container(keyedBy: MoviesCodingKeys.self)
         self.movies = try container.decode([Movie].self, forKey: .movies)
     }
 }

@@ -11,7 +11,8 @@ import Alamofire
 protocol MovieAppServiceProtocol {
     func getGenreList(completion: @escaping (AFResult<GenreResponse>) -> Void)
     func getArtists(completion: @escaping (AFResult<ArtistsResponse>) -> Void)
-    func getPopularMovies(completion: @escaping (AFResult<PopularMoviesResponse>) -> Void)
+    func getPopularMovies(completion: @escaping (AFResult<MoviesResponse>) -> Void)
+    func getUpcomingMovies(completion: @escaping (AFResult<MoviesResponse>) -> Void)
 }
 
 final class MovieAppService: MovieAppServiceProtocol {
@@ -59,7 +60,7 @@ final class MovieAppService: MovieAppServiceProtocol {
         }
     }
     
-    func getPopularMovies(completion: @escaping (AFResult<PopularMoviesResponse>) -> Void) {
+    func getPopularMovies(completion: @escaping (AFResult<MoviesResponse>) -> Void) {
         let path = "movie/popular"
         let urlString = getUrlString(for: path)
         AF.request(urlString).responseData { response in
@@ -67,8 +68,28 @@ final class MovieAppService: MovieAppServiceProtocol {
             case .success(let data):
                 do {
                     let decoder = JSONDecoder()
-                    let results = try decoder.decode(PopularMoviesResponse.self, from: data)
-                    let response = PopularMoviesResponse(movies: results.movies)
+                    let results = try decoder.decode(MoviesResponse.self, from: data)
+                    let response = MoviesResponse(movies: results.movies)
+                    completion(.success(response))
+                } catch {
+                    print(error)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func getUpcomingMovies(completion: @escaping (AFResult<MoviesResponse>) -> Void) {
+        let path = "movie/upcoming"
+        let urlString = getUrlString(for: path)
+        AF.request(urlString).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder()
+                    let results = try decoder.decode(MoviesResponse.self, from: data)
+                    let response = MoviesResponse(movies: results.movies)
                     completion(.success(response))
                 } catch {
                     print(error)
