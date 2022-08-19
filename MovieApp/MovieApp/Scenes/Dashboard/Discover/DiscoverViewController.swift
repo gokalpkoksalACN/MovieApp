@@ -82,9 +82,9 @@ extension DiscoverViewController: UITableViewDataSource {
         case 0:
             cell.configure(with: popularMovies)
         case 1:
-            cell.configure(with: recentMovies)
-        case 2:
             cell.configure(with: upcomingMovies)
+        case 2:
+            cell.configure(with: recentMovies)
         default:
             break
         }
@@ -97,9 +97,9 @@ extension DiscoverViewController: UITableViewDataSource {
         case 0:
             header.setup(with: "Most Popular")
         case 1:
-            header.setup(with: "Most Recent")
-        case 2:
             header.setup(with: "Upcoming Movies")
+        case 2:
+            header.setup(with: "Most Recent")
         default:
             break
         }
