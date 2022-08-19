@@ -59,6 +59,7 @@ class LandingViewController: UIViewController {
         exploreLabel.font = UIFont(name: "AppleGothic", size: 22)
         exploreLabel.textColor = .white
         exploreLabel.textAlignment = .center
+        exploreLabel.addCharacterSpacing(kernValue: -1.06)
         
         let chevronRightImage = UIImage(named: "chevron_right")?.withRenderingMode(.alwaysTemplate)
         let arrowSign = UIImageView(image: chevronRightImage)
