@@ -25,7 +25,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
         didSet {
             // TODO: Fix number of lines
             movieTitleLabel.font = UIFont(name: "AppleGothic", size: 14)
-            movieTitleLabel.textColor = UIColor(red: 74/255, green: 74/255, blue: 74/255, alpha: 1.0)
+            movieTitleLabel.textColor = AppColors.greyishBrown
         }
     }
     
@@ -34,7 +34,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
             // TODO: Fix duration
             movieDurationTitle.text = "1h, 25mins"
             movieDurationTitle.font = UIFont(name: "AppleGothic", size: 12)
-            movieDurationTitle.textColor = UIColor(red: 155/255, green: 155/255, blue: 155/255, alpha: 1.0)
+            movieDurationTitle.textColor = AppColors.brownGrey
         }
     }
     

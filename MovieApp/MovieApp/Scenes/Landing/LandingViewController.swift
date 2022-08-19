@@ -69,7 +69,7 @@ class LandingViewController: UIViewController {
         
         buttonStackView.addArrangedSubview(exploreLabel)
         buttonStackView.addArrangedSubview(arrowSign)
-        buttonStackView.backgroundColor = UIColor(red: 2/255, green: 148/255, blue: 165/255, alpha: 0.8)
+        buttonStackView.backgroundColor = AppColors.tealBlue_80
         buttonStackView.layer.cornerRadius = 7.0
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(explorePressed(_:)))
@@ -79,7 +79,7 @@ class LandingViewController: UIViewController {
     private func configurePageControl() {
         pageControl.numberOfPages = backgroundImageNames.count
         pageControl.currentPage = 0
-        pageControl.currentPageIndicatorTintColor = UIColor(red: 2/255, green: 148/255, blue: 165/255, alpha: 0.8)
+        pageControl.currentPageIndicatorTintColor = AppColors.tealBlue
         pageControl.pageIndicatorTintColor = .white
     }
     

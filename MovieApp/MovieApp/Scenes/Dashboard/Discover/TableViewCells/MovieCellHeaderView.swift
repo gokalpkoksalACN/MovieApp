@@ -16,7 +16,7 @@ class MovieCellHeaderView: UITableViewHeaderFooterView {
         let label = UILabel()
         label.text = "See All"
         label.font = UIFont(name: "AppleGothic", size: 14)
-        label.textColor = UIColor(red: 2/255, green: 148/255, blue: 165/255, alpha: 0.8)
+        label.textColor = AppColors.tealBlue
         return label
     }()
     

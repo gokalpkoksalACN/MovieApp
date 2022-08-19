@@ -49,7 +49,7 @@ class GenreViewController: UIViewController, GenreDelegate {
     }
     
     private func configureTabBar() {
-        tabBarController?.tabBar.tintColor = UIColor(red: 2/255, green: 148/255, blue: 165/255, alpha: 1.0)
+        tabBarController?.tabBar.tintColor = AppColors.tealBlue
     }
     
     private func setTitle() {

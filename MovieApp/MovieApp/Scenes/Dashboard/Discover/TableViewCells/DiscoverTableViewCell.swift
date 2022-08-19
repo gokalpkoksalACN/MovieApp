@@ -28,7 +28,7 @@ class DiscoverTableViewCell: UITableViewCell {
         layout.scrollDirection = .horizontal
         collectionView.collectionViewLayout = layout
         collectionView.register(MovieCollectionViewCell.nib(), forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
-        collectionView.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 238/255)
+        collectionView.backgroundColor = AppColors.veryLightPink
     }
     
     func configure(with movies: [MoviePresentation]) {

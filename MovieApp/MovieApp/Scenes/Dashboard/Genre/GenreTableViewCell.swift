@@ -21,7 +21,7 @@ class GenreTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        bottomView.backgroundColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 0.65)
+        bottomView.backgroundColor = AppColors.veryLightPink_65
         genreTitleLabel.font = UIFont(name: "AppleGothic", size: 22)
     }
     

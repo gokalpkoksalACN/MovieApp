@@ -48,7 +48,7 @@ class DiscoverViewController: UIViewController, DiscoverDelegate {
     }
     
     private func configureTabBar() {
-        tabBarController?.tabBar.tintColor = UIColor(red: 2/255, green: 148/255, blue: 165/255, alpha: 1.0)
+        tabBarController?.tabBar.tintColor = AppColors.tealBlue
     }
     
     private func setTitle() {
@@ -60,7 +60,7 @@ class DiscoverViewController: UIViewController, DiscoverDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
-        tableView.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 238/255)
+        tableView.backgroundColor = AppColors.veryLightPink
         tableView.register(MovieCellHeaderView.self, forHeaderFooterViewReuseIdentifier: MovieCellHeaderView.identifier)
         tableView.register(DiscoverTableViewCell.nib(), forCellReuseIdentifier: DiscoverTableViewCell.identifier)
         tableView.separatorStyle = .none
