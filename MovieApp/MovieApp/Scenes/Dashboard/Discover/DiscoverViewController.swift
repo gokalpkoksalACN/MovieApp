@@ -19,8 +19,7 @@ class DiscoverViewController: UIViewController, DiscoverDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTitle()
-        configureTableView()
+        configureContent()
         viewModel.delegate = self
         viewModel.start()
     }
@@ -40,6 +39,16 @@ class DiscoverViewController: UIViewController, DiscoverDelegate {
             // TODO: Implement loading animation
             print(isAnimating)
         }
+    }
+    
+    private func configureContent() {
+        setTitle()
+        configureTableView()
+        configureTabBar()
+    }
+    
+    private func configureTabBar() {
+        tabBarController?.tabBar.tintColor = UIColor(red: 2/255, green: 148/255, blue: 165/255, alpha: 1.0)
     }
     
     private func setTitle() {

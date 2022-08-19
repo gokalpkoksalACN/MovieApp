@@ -22,7 +22,7 @@ class ArtistsViewController: UIViewController, ArtistsDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTitle()
+        
         configureContent()
         viewModel.delegate = self
         viewModel.start()
@@ -48,7 +48,13 @@ class ArtistsViewController: UIViewController, ArtistsDelegate {
     }
     
     private func configureContent() {
+        setTitle()
         configureCollectionView()
+        configureTabBar()
+    }
+    
+    private func configureTabBar() {
+        tabBarController?.tabBar.tintColor = UIColor(red: 2/255, green: 148/255, blue: 165/255, alpha: 1.0)
     }
     
     private func configureCollectionView() {
