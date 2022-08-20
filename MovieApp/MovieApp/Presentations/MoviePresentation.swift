@@ -7,18 +7,27 @@
 
 import Foundation
 
-// TODO: add duration
+// TODO: Add other needed movie details
 struct MoviePresentation {
     let title: String
+    let overview: String
     let image: URL?
+    let genres: [Genre]?
+    let duration: Int?
     
-    init(title: String, imagePath: String) {
+    init(title: String, overview: String, imagePath: String, genres: [Genre], duration: Int) {
         self.title = title
+        self.overview = overview
         self.image = URL(string: imagePath)
+        self.genres = genres
+        self.duration = duration
     }
     
     init(movie: Movie) {
         self.title = movie.title
-        self.image = URL(string: movie.imagePath)
+        self.overview = movie.overview
+        self.image = URL(string: movie.posterImagePath)
+        self.genres = movie.genres
+        self.duration = movie.duration
     }
 }
