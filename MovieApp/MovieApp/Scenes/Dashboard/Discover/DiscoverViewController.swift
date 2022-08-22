@@ -97,6 +97,12 @@ extension DiscoverViewController: UITableViewDataSource {
         default:
             break
         }
+        cell.onMovieSelect = { movie in
+            let storyboard = UIStoryboard(name: "MovieDetails", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "MovieDetailsViewController") as! MovieDetailsViewController
+            viewController.viewModel = MovieDetailsViewModel(movie: movie)
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
         return cell
     }
     

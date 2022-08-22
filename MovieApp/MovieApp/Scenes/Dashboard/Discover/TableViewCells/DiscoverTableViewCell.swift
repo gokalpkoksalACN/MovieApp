@@ -11,6 +11,8 @@ class DiscoverTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var onMovieSelect: ((MoviePresentation) -> Void)?
+    
     static let identifier = "DiscoverTableViewCell"
     
     static func nib() -> UINib {
@@ -39,7 +41,7 @@ class DiscoverTableViewCell: UITableViewCell {
 
 extension DiscoverTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("collectionViewCell tapped")
+        onMovieSelect?(movies[indexPath.item])
     }
 }
 
