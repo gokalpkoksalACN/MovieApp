@@ -19,6 +19,7 @@ final class DiscoverViewModel: DiscoverViewModelProtocol {
     func start() {
         fetchPopularMovies()
         fetchUpcomingMovies()
+        fetchRecentMovies()
     }
     
     private func fetchPopularMovies() {
@@ -41,6 +42,19 @@ final class DiscoverViewModel: DiscoverViewModelProtocol {
             case .success(let response):
                 let presentations = response.movies.map { MoviePresentation(movie: $0) }
                 self.notify(.updateUpcomingMovies(presentations))
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    private func fetchRecentMovies() {
+        service.getRecentMovies { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let response):
+                let presentations = response.movies.map { MoviePresentation(movie: $0) }
+                self.notify(.updateRecentMovies(presentations))
             case .failure(let error):
                 print(error)
             }

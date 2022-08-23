@@ -13,6 +13,7 @@ protocol MovieAppServiceProtocol {
     func getArtists(completion: @escaping (AFResult<ArtistsResponse>) -> Void)
     func getPopularMovies(completion: @escaping (AFResult<MoviesResponse>) -> Void)
     func getUpcomingMovies(completion: @escaping (AFResult<MoviesResponse>) -> Void)
+    func getRecentMovies(completion: @escaping (AFResult<MoviesResponse>) -> Void)
 }
 
 final class MovieAppService: MovieAppServiceProtocol {
@@ -82,6 +83,26 @@ final class MovieAppService: MovieAppServiceProtocol {
     
     func getUpcomingMovies(completion: @escaping (AFResult<MoviesResponse>) -> Void) {
         let path = "movie/upcoming"
+        let urlString = getUrlString(for: path)
+        AF.request(urlString).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder()
+                    let results = try decoder.decode(MoviesResponse.self, from: data)
+                    let response = MoviesResponse(movies: results.movies)
+                    completion(.success(response))
+                } catch {
+                    print(error)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func getRecentMovies(completion: @escaping (AFResult<MoviesResponse>) -> Void) {
+        let path = "movie/now_playing"
         let urlString = getUrlString(for: path)
         AF.request(urlString).responseData { response in
             switch response.result {
