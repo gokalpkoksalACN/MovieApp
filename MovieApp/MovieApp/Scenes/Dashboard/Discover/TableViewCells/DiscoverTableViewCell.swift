@@ -10,6 +10,11 @@ import UIKit
 class DiscoverTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
+        didSet {
+            activityIndicator.hidesWhenStopped = true
+        }
+    }
     
     var onMovieSelect: ((MoviePresentation) -> Void)?
     
@@ -21,6 +26,7 @@ class DiscoverTableViewCell: UITableViewCell {
     }
     
     private var movies: [MoviePresentation] = []
+    private var isAnimating: Bool = true
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,9 +39,19 @@ class DiscoverTableViewCell: UITableViewCell {
         collectionView.backgroundColor = AppColors.veryLightPink
     }
     
-    func configure(with movies: [MoviePresentation]) {
-        self.movies = movies
+    func configure(with presentation: MoviesCellPresentation) {
+        self.movies = presentation.movies
+        self.isAnimating = presentation.isAnimating
+        activityIndicatorUpdate()
         collectionView.reloadData()
+    }
+    
+    private func activityIndicatorUpdate() {
+        if self.isAnimating {
+            self.activityIndicator.startAnimating()
+        } else {
+            self.activityIndicator.stopAnimating()
+        }
     }
 }
 

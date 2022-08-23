@@ -7,13 +7,17 @@
 
 import UIKit
 
+struct MoviesCellPresentation {
+    let isAnimating: Bool
+    let movies: [MoviePresentation]
+}
 class DiscoverViewController: UIViewController, DiscoverDelegate {
 
     @IBOutlet private weak var tableView: UITableView!
     
-    private var popularMovies: [MoviePresentation] = []
-    private var upcomingMovies: [MoviePresentation] = []
-    private var recentMovies: [MoviePresentation] = []
+    private var popularMoviesCellPresentation = MoviesCellPresentation(isAnimating: true, movies: [])
+    private var upcomingMoviesCellPresentation = MoviesCellPresentation(isAnimating: true, movies: [])
+    private var recentMoviesCellPresentation = MoviesCellPresentation(isAnimating: true, movies: [])
     
     private let viewModel = DiscoverViewModel(service: MovieAppService())
     
@@ -27,17 +31,14 @@ class DiscoverViewController: UIViewController, DiscoverDelegate {
     func handleViewModelOutput(_ output: DiscoverViewModelOutput) {
         switch output {
         case .updatePopularMovies(let presentations):
-            self.popularMovies = presentations
+            self.popularMoviesCellPresentation = MoviesCellPresentation(isAnimating: false, movies: presentations)
             tableView.reloadData()
         case .updateRecentMovies(let presentations):
-            self.recentMovies = presentations
+            self.recentMoviesCellPresentation = MoviesCellPresentation(isAnimating: false, movies: presentations)
             tableView.reloadData()
         case .updateUpcomingMovies(let presentations):
-            self.upcomingMovies = presentations
+            self.upcomingMoviesCellPresentation = MoviesCellPresentation(isAnimating: false, movies: presentations)
             tableView.reloadData()
-        case .setLoading(let isAnimating):
-            // TODO: Implement loading animation
-            print(isAnimating)
         }
     }
     
@@ -89,11 +90,11 @@ extension DiscoverViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: DiscoverTableViewCell.identifier, for: indexPath) as! DiscoverTableViewCell
         switch indexPath.section {
         case 0:
-            cell.configure(with: popularMovies)
+            cell.configure(with: popularMoviesCellPresentation)
         case 1:
-            cell.configure(with: upcomingMovies)
+            cell.configure(with: upcomingMoviesCellPresentation)
         case 2:
-            cell.configure(with: recentMovies)
+            cell.configure(with: recentMoviesCellPresentation)
         default:
             break
         }

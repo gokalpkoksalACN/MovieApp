@@ -22,32 +22,26 @@ final class DiscoverViewModel: DiscoverViewModelProtocol {
     }
     
     private func fetchPopularMovies() {
-        self.notify(.setLoading(true))
         service.getPopularMovies { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let response):
-                self.notify(.setLoading(false))
                 let presentations = response.movies.map { MoviePresentation(movie: $0) }
                 self.notify(.updatePopularMovies(presentations))
             case .failure(let error):
-                self.notify(.setLoading(false))
                 print(error)
             }
         }
     }
     
     private func fetchUpcomingMovies() {
-        self.notify(.setLoading(true))
         service.getUpcomingMovies { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let response):
-                self.notify(.setLoading(false))
                 let presentations = response.movies.map { MoviePresentation(movie: $0) }
                 self.notify(.updateUpcomingMovies(presentations))
             case .failure(let error):
-                self.notify(.setLoading(false))
                 print(error)
             }
         }

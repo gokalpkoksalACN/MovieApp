@@ -20,6 +20,5 @@ enum DiscoverViewModelOutput {
     case updatePopularMovies([MoviePresentation])
     case updateRecentMovies([MoviePresentation])
     case updateUpcomingMovies([MoviePresentation])
-    case setLoading(Bool)
 }
 
