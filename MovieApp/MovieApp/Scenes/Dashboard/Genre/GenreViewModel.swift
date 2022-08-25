@@ -11,9 +11,9 @@ class GenreViewModel: GenreViewModelProtocol {
     
     weak var delegate: GenreDelegate?
     
-    private let service: MovieAppServiceProtocol
+    private let service: MovieGenreAPI
     
-    init(service: MovieAppServiceProtocol) {
+    init(service: MovieGenreAPI) {
         self.service = service
     }
     

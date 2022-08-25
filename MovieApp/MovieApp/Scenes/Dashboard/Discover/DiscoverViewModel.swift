@@ -10,9 +10,9 @@ import Foundation
 final class DiscoverViewModel: DiscoverViewModelProtocol {
     
     weak var delegate: DiscoverDelegate?
-    private let service: MovieAppServiceProtocol
+    private let service: MovieDiscoverAPI
     
-    init(service: MovieAppServiceProtocol) {
+    init(service: MovieDiscoverAPI) {
         self.service = service
     }
     

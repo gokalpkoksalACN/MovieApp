@@ -10,9 +10,9 @@ import Foundation
 final class ArtistsViewModel: ArtistsViewModelProtocol {
     
     weak var delegate: ArtistsDelegate?
-    private let service: MovieAppServiceProtocol
+    private let service: MovieArtistAPI
     
-    init(service: MovieAppServiceProtocol) {
+    init(service: MovieArtistAPI) {
         self.service = service
     }
     

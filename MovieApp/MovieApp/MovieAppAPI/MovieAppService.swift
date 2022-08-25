@@ -8,20 +8,26 @@
 import Foundation
 import Alamofire
 
-protocol MovieAppServiceProtocol {
-    func getGenreList(completion: @escaping (AFResult<GenreResponse>) -> Void)
-    func getArtists(completion: @escaping (AFResult<ArtistsResponse>) -> Void)
-    func getPopularMovies(completion: @escaping (AFResult<MoviesResponse>) -> Void)
-    func getUpcomingMovies(completion: @escaping (AFResult<MoviesResponse>) -> Void)
-    func getRecentMovies(completion: @escaping (AFResult<MoviesResponse>) -> Void)
+protocol MovieGenreAPI {
+    func getGenreList(completion: @escaping (Result<GenreResponse, Error>) -> Void)
 }
 
-final class MovieAppService: MovieAppServiceProtocol {
+protocol MovieArtistAPI {
+    func getArtists(completion: @escaping (Result<ArtistsResponse, Error>) -> Void)
+}
+
+protocol MovieDiscoverAPI {
+    func getPopularMovies(completion: @escaping (Result<MoviesResponse, Error>) -> Void)
+    func getUpcomingMovies(completion: @escaping (Result<MoviesResponse, Error>) -> Void)
+    func getRecentMovies(completion: @escaping (Result<MoviesResponse, Error>) -> Void)
+}
+
+final class MovieAppService: MovieGenreAPI, MovieArtistAPI, MovieDiscoverAPI {
     
     private let apiKey = "dc190303aea87bdf6e4faa3d59de8c59"
     private let baseUrl = "https://api.themoviedb.org/3"
     
-    func getGenreList(completion: @escaping (AFResult<GenreResponse>) -> Void) {
+    func getGenreList(completion: @escaping (Result<GenreResponse, Error>) -> Void) {
         let path = "genre/movie/list"
         let urlString = getUrlString(for: path)
         AF.request(urlString).responseData { response in
@@ -33,15 +39,15 @@ final class MovieAppService: MovieAppServiceProtocol {
                     let response = GenreResponse(genres: results.genres)
                     completion(.success(response))
                 } catch {
-                    print(error)
+                    completion(.failure(error))
                 }
             case .failure(let error):
-                print(error)
+                completion(.failure(error))
             }
         }
     }
     
-    func getArtists(completion: @escaping (AFResult<ArtistsResponse>) -> Void) {
+    func getArtists(completion: @escaping (Result<ArtistsResponse, Error>) -> Void) {
         let path = "person/popular"
         let urlString = getUrlString(for: path)
         AF.request(urlString).responseData { response in
@@ -53,15 +59,15 @@ final class MovieAppService: MovieAppServiceProtocol {
                     let response = ArtistsResponse(artists: results.artists)
                     completion(.success(response))
                 } catch {
-                    print(error)
+                    completion(.failure(error))
                 }
             case .failure(let error):
-                print(error)
+                completion(.failure(error))
             }
         }
     }
     
-    func getPopularMovies(completion: @escaping (AFResult<MoviesResponse>) -> Void) {
+    func getPopularMovies(completion: @escaping (Result<MoviesResponse, Error>) -> Void) {
         let path = "movie/popular"
         let urlString = getUrlString(for: path)
         AF.request(urlString).responseData { response in
@@ -73,15 +79,15 @@ final class MovieAppService: MovieAppServiceProtocol {
                     let response = MoviesResponse(movies: results.movies)
                     completion(.success(response))
                 } catch {
-                    print(error)
+                    completion(.failure(error))
                 }
             case .failure(let error):
-                print(error)
+                completion(.failure(error))
             }
         }
     }
     
-    func getUpcomingMovies(completion: @escaping (AFResult<MoviesResponse>) -> Void) {
+    func getUpcomingMovies(completion: @escaping (Result<MoviesResponse, Error>) -> Void) {
         let path = "movie/upcoming"
         let urlString = getUrlString(for: path)
         AF.request(urlString).responseData { response in
@@ -93,15 +99,15 @@ final class MovieAppService: MovieAppServiceProtocol {
                     let response = MoviesResponse(movies: results.movies)
                     completion(.success(response))
                 } catch {
-                    print(error)
+                    completion(.failure(error))
                 }
             case .failure(let error):
-                print(error)
+                completion(.failure(error))
             }
         }
     }
     
-    func getRecentMovies(completion: @escaping (AFResult<MoviesResponse>) -> Void) {
+    func getRecentMovies(completion: @escaping (Result<MoviesResponse, Error>) -> Void) {
         let path = "movie/now_playing"
         let urlString = getUrlString(for: path)
         AF.request(urlString).responseData { response in
@@ -113,10 +119,10 @@ final class MovieAppService: MovieAppServiceProtocol {
                     let response = MoviesResponse(movies: results.movies)
                     completion(.success(response))
                 } catch {
-                    print(error)
+                    completion(.failure(error))
                 }
             case .failure(let error):
-                print(error)
+                completion(.failure(error))
             }
         }
     }
