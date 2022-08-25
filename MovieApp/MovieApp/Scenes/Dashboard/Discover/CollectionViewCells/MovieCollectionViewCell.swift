@@ -10,10 +10,13 @@ import UIKit
 class MovieCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "MovieCollectionViewCell"
+    
     static func nib() -> UINib {
         let nib = UINib(nibName: "MovieCollectionViewCell", bundle: nil)
         return nib
     }
+    
+    private var imageDownloadTask: ImageTask?
 
     @IBOutlet private weak var movieImageView: UIImageView! {
         didSet {
@@ -46,8 +49,13 @@ class MovieCollectionViewCell: UICollectionViewCell {
 
     func configure(with movie: MoviePresentation) {
         if let image = movie.image {
-            movieImageView.setKingfisherImage(with: image)
+            self.imageDownloadTask = movieImageView.setImage(with: image)
         }
         movieTitleLabel.text = movie.title
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageDownloadTask?.cancel()
     }
 }

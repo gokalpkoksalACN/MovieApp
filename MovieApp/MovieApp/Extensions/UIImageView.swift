@@ -9,7 +9,23 @@ import UIKit
 import Kingfisher
 
 extension UIImageView {
-    func setKingfisherImage(with url: URL) {
-        self.kf.setImage(with: url)
+    func setImage(with url: URL) -> ImageTask? {
+        self.kf.cancelDownloadTask()
+        
+        let task = self.kf.setImage(with: url)
+        // Optional<DownloadTask>
+        return task.map { ImageTask(task: $0) }
+    }
+}
+
+struct ImageTask {
+    private let task: DownloadTask
+    
+    init(task: DownloadTask) {
+        self.task = task
+    }
+    
+    func cancel() {
+        task.cancel()
     }
 }

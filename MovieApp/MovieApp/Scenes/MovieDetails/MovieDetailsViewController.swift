@@ -40,7 +40,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDelegate {
         case .setMovieOverview(let overview):
             movieOverviewLabel?.text = overview
         case .setMovieImage(let url):
-            moviePosterImageView?.setKingfisherImage(with: url)
+            moviePosterImageView?.setImage(with: url)
         }
     }
 }

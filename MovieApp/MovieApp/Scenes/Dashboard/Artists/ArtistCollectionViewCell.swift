@@ -11,6 +11,8 @@ class ArtistCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "ArtistCollectionViewCell"
     
+    private var imageDownloadTask: ImageTask?
+    
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
             imageView.contentMode = .scaleAspectFill
@@ -30,7 +32,12 @@ class ArtistCollectionViewCell: UICollectionViewCell {
     func setup(with presentation: ArtistPresentation) {
         nameLabel.text = presentation.name
         if let imageURL = presentation.image {
-            imageView.setKingfisherImage(with: imageURL)
+            self.imageDownloadTask = imageView.setImage(with: imageURL)
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageDownloadTask?.cancel()
     }
 }
