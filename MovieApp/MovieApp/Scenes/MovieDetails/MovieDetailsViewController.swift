@@ -35,12 +35,13 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDelegate {
     
     func handleViewModelOutput(_ output: MovieDetailsViewModelOutput) {
         switch output {
-        case .setMovieTitle(let title):
-            movieTitleLabel?.text = title
-        case .setMovieOverview(let overview):
-            movieOverviewLabel?.text = overview
-        case .setMovieImage(let url):
-            moviePosterImageView?.setImage(with: url)
+        // TODO: set other details
+        case .setMovieDetails(let movie):
+            movieTitleLabel?.text = movie.title
+            movieOverviewLabel?.text = movie.overview
+            if let url = movie.posterImageURL {
+                moviePosterImageView?.setImage(with: url)
+            }
         }
     }
 }

@@ -16,6 +16,8 @@ struct Movie: Decodable {
         case posterImagePath = "poster_path"
         case genres
         case duration = "runtime"
+        case language = "original_language"
+        case releaseDate = "release_date"
     }
     
     let id: Int
@@ -24,14 +26,18 @@ struct Movie: Decodable {
     let posterImagePath: String
     let genres: [Genre]?
     let duration: Int?
+    let language: String
+    let releaseDate: Date
     
-    init(id: Int, title: String, imagePath: String, overview: String, genres: [Genre], duration: Int) {
+    init(id: Int, title: String, imagePath: String, overview: String, genres: [Genre], duration: Int, language: String, releaseDate: Date) {
         self.id = id
         self.title = title
         self.overview = overview
         self.posterImagePath = imagePath
         self.genres = genres
         self.duration = duration
+        self.language = language
+        self.releaseDate = releaseDate
     }
     
     init(from decoder: Decoder) throws {
@@ -43,5 +49,7 @@ struct Movie: Decodable {
         self.overview = try container.decode(String.self, forKey: .overview)
         self.genres = try container.decodeIfPresent([Genre].self, forKey: .genres)
         self.duration = try container.decodeIfPresent(Int.self, forKey: .duration)
+        self.language = try container.decode(String.self, forKey: .language)
+        self.releaseDate = try container.decode(Date.self, forKey: .releaseDate)
     }
 }

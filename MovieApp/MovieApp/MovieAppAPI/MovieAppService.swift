@@ -22,7 +22,11 @@ protocol MovieDiscoverAPI {
     func getRecentMovies(completion: @escaping (Result<MoviesResponse, Error>) -> Void)
 }
 
-final class MovieAppService: MovieGenreAPI, MovieArtistAPI, MovieDiscoverAPI {
+protocol MovieDetailsAPI {
+    func getMovieDetails(with id: Int, completion: @escaping (Result<Movie, Error>) -> Void)
+}
+
+final class MovieAppService: MovieGenreAPI, MovieArtistAPI, MovieDiscoverAPI, MovieDetailsAPI {
     
     private let apiKey = "dc190303aea87bdf6e4faa3d59de8c59"
     private let baseUrl = "https://api.themoviedb.org/3"
@@ -74,7 +78,7 @@ final class MovieAppService: MovieGenreAPI, MovieArtistAPI, MovieDiscoverAPI {
             switch response.result {
             case .success(let data):
                 do {
-                    let decoder = JSONDecoder()
+                    let decoder = JSONDecoder.plainDateDecoder()
                     let results = try decoder.decode(MoviesResponse.self, from: data)
                     let response = MoviesResponse(movies: results.movies)
                     completion(.success(response))
@@ -94,7 +98,7 @@ final class MovieAppService: MovieGenreAPI, MovieArtistAPI, MovieDiscoverAPI {
             switch response.result {
             case .success(let data):
                 do {
-                    let decoder = JSONDecoder()
+                    let decoder = JSONDecoder.plainDateDecoder()
                     let results = try decoder.decode(MoviesResponse.self, from: data)
                     let response = MoviesResponse(movies: results.movies)
                     completion(.success(response))
@@ -114,10 +118,29 @@ final class MovieAppService: MovieGenreAPI, MovieArtistAPI, MovieDiscoverAPI {
             switch response.result {
             case .success(let data):
                 do {
-                    let decoder = JSONDecoder()
+                    let decoder = JSONDecoder.plainDateDecoder()
                     let results = try decoder.decode(MoviesResponse.self, from: data)
                     let response = MoviesResponse(movies: results.movies)
                     completion(.success(response))
+                } catch {
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getMovieDetails(with id: Int, completion: @escaping (Result<Movie, Error>) -> Void) {
+        let path = "movie/\(id)"
+        let urlString = getUrlString(for: path)
+        AF.request(urlString).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder.plainDateDecoder()
+                    let movie = try decoder.decode(Movie.self, from: data)
+                    completion(.success(movie))
                 } catch {
                     completion(.failure(error))
                 }

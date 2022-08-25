@@ -9,7 +9,7 @@ import UIKit
 
 struct MoviesCellPresentation {
     let isAnimating: Bool
-    let movies: [MoviePresentation]
+    let movies: [MovieCardPresentation]
 }
 class DiscoverViewController: UIViewController, DiscoverDelegate {
 
@@ -101,7 +101,7 @@ extension DiscoverViewController: UITableViewDataSource {
         cell.onMovieSelect = { movie in
             let storyboard = UIStoryboard(name: "MovieDetails", bundle: nil)
             let viewController = storyboard.instantiateViewController(withIdentifier: "MovieDetailsViewController") as! MovieDetailsViewController
-            viewController.viewModel = MovieDetailsViewModel(movie: movie)
+            viewController.viewModel = MovieDetailsViewModel(movie: movie, service: MovieAppService())
             self.navigationController?.pushViewController(viewController, animated: true)
         }
         return cell

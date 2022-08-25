@@ -27,7 +27,7 @@ final class DiscoverViewModel: DiscoverViewModelProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let response):
-                let presentations = response.movies.map { MoviePresentation(movie: $0) }
+                let presentations = response.movies.map { MovieCardPresentation(movie: $0) }
                 self.notify(.updatePopularMovies(presentations))
             case .failure(let error):
                 print(error)
@@ -40,7 +40,7 @@ final class DiscoverViewModel: DiscoverViewModelProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let response):
-                let presentations = response.movies.map { MoviePresentation(movie: $0) }
+                let presentations = response.movies.map { MovieCardPresentation(movie: $0) }
                 self.notify(.updateUpcomingMovies(presentations))
             case .failure(let error):
                 print(error)
@@ -53,7 +53,7 @@ final class DiscoverViewModel: DiscoverViewModelProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let response):
-                let presentations = response.movies.map { MoviePresentation(movie: $0) }
+                let presentations = response.movies.map { MovieCardPresentation(movie: $0) }
                 self.notify(.updateRecentMovies(presentations))
             case .failure(let error):
                 print(error)

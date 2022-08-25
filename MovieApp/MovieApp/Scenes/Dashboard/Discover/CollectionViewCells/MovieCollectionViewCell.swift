@@ -47,7 +47,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
-    func configure(with movie: MoviePresentation) {
+    func configure(with movie: MovieCardPresentation) {
         if let image = movie.image {
             self.imageDownloadTask = movieImageView.setImage(with: image)
         }

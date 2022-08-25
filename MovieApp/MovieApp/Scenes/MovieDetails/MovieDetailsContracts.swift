@@ -17,9 +17,7 @@ protocol MovieDetailsViewModelProtocol {
 }
 
 enum MovieDetailsViewModelOutput {
-    case setMovieTitle(String)
-    case setMovieOverview(String)
-    case setMovieImage(URL)
+    case setMovieDetails(MovieDetailPresentation)
 }
 
 

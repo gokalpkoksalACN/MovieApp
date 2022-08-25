@@ -16,7 +16,7 @@ class DiscoverTableViewCell: UITableViewCell {
         }
     }
     
-    var onMovieSelect: ((MoviePresentation) -> Void)?
+    var onMovieSelect: ((MovieCardPresentation) -> Void)?
     
     static let identifier = "DiscoverTableViewCell"
     
@@ -25,7 +25,7 @@ class DiscoverTableViewCell: UITableViewCell {
         return nib
     }
     
-    private var movies: [MoviePresentation] = []
+    private var movies: [MovieCardPresentation] = []
     private var isAnimating: Bool = true
     
     override func awakeFromNib() {

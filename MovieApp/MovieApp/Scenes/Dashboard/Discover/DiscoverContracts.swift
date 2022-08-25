@@ -17,8 +17,8 @@ protocol DiscoverViewModelProtocol {
 }
 
 enum DiscoverViewModelOutput {
-    case updatePopularMovies([MoviePresentation])
-    case updateRecentMovies([MoviePresentation])
-    case updateUpcomingMovies([MoviePresentation])
+    case updatePopularMovies([MovieCardPresentation])
+    case updateRecentMovies([MovieCardPresentation])
+    case updateUpcomingMovies([MovieCardPresentation])
 }
 
