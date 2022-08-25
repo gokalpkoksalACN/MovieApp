@@ -24,17 +24,8 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOv-E9-Rii">
-                        <rect key="frame" x="0.0" y="188" width="136" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="16" id="mFc-dg-ZPS"/>
-                        </constraints>
+                        <rect key="frame" x="2" y="188" width="132" height="36"/>
                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRt-zs-Vhe">
-                        <rect key="frame" x="0.0" y="206" width="136" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -42,19 +33,15 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="mRt-zs-Vhe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3KR-Dl-9m1"/>
-                <constraint firstItem="EOv-E9-Rii" firstAttribute="top" secondItem="UFg-3B-TVw" secondAttribute="bottom" constant="8" id="87H-Gd-Z2T"/>
-                <constraint firstAttribute="bottom" secondItem="mRt-zs-Vhe" secondAttribute="bottom" id="DpX-xQ-ktM"/>
-                <constraint firstAttribute="trailing" secondItem="mRt-zs-Vhe" secondAttribute="trailing" id="F5e-cp-45k"/>
-                <constraint firstItem="EOv-E9-Rii" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="GGQ-8P-GJE"/>
-                <constraint firstItem="mRt-zs-Vhe" firstAttribute="top" secondItem="EOv-E9-Rii" secondAttribute="bottom" constant="2" id="Pa9-gc-Eh5"/>
+                <constraint firstAttribute="bottom" secondItem="EOv-E9-Rii" secondAttribute="bottom" constant="2" id="13f-ag-FiY"/>
+                <constraint firstItem="EOv-E9-Rii" firstAttribute="top" secondItem="UFg-3B-TVw" secondAttribute="bottom" constant="8" id="EG7-Hv-IDT"/>
+                <constraint firstAttribute="trailing" secondItem="EOv-E9-Rii" secondAttribute="trailing" constant="2" id="NVe-pT-3Ky"/>
                 <constraint firstAttribute="trailing" secondItem="UFg-3B-TVw" secondAttribute="trailing" id="X8f-31-Hna"/>
-                <constraint firstAttribute="trailing" secondItem="EOv-E9-Rii" secondAttribute="trailing" id="YEV-Ti-ZFh"/>
                 <constraint firstItem="UFg-3B-TVw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="aHe-QN-x3z"/>
+                <constraint firstItem="EOv-E9-Rii" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="wKP-xt-OLq"/>
                 <constraint firstItem="UFg-3B-TVw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="x7q-Bz-T6o"/>
             </constraints>
             <connections>
-                <outlet property="movieDurationTitle" destination="mRt-zs-Vhe" id="Ln1-YJ-B2z"/>
                 <outlet property="movieImageView" destination="UFg-3B-TVw" id="2cj-Se-2S2"/>
                 <outlet property="movieTitleLabel" destination="EOv-E9-Rii" id="G4x-EK-LsX"/>
             </connections>

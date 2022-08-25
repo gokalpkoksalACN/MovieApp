@@ -32,16 +32,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    @IBOutlet private weak var movieDurationTitle: UILabel! {
-        didSet{
-            // TODO: Fix duration
-            movieDurationTitle.text = "1h, 25mins"
-            movieDurationTitle.font = UIFont(name: "AppleGothic", size: 12)
-            movieDurationTitle.textColor = AppColors.brownGrey
-        }
-    }
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
