@@ -16,6 +16,7 @@ struct MovieDetailPresentation {
     let duration: Int?
     let language: String
     let releaseDate: Date
+    let voteAverage: Double
     
     init(with movie: Movie) {
         self.title = movie.title
@@ -25,5 +26,6 @@ struct MovieDetailPresentation {
         self.duration = movie.duration
         self.language = movie.language
         self.releaseDate = movie.releaseDate
+        self.voteAverage = movie.voteAverage
     }
 }

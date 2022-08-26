@@ -40,6 +40,14 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDelegate {
         }
     }
     
+    // TODO: Fix stars and voteAverage text
+    @IBOutlet private weak var voteAverageLabel: UILabel! {
+        didSet {
+            voteAverageLabel.font = .appFont(with: 13)
+            voteAverageLabel.textColor = AppColors.greyishBrown
+        }
+    }
+    
     var viewModel: MovieDetailsViewModelProtocol?
     
     override func viewDidLoad() {
@@ -60,7 +68,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDelegate {
                 movieGenresLabel.text = getGenresString(for: genres)
             }
             movieOverviewLabel?.text = movie.overview
-            
+            voteAverageLabel.text = String(movie.voteAverage) + "/ 10"
         }
     }
     

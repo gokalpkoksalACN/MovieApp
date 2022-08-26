@@ -44,9 +44,23 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="5.0 / 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kD-EB-pR6">
+                                        <rect key="frame" x="340" y="74" width="55" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⭐️ ⭐️ ⭐️ ⭐️ ⭐️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9M-CV-rIS">
+                                        <rect key="frame" x="165" y="74" width="115.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4kD-EB-pR6" secondAttribute="trailing" constant="19" id="31F-xh-aYL"/>
+                                    <constraint firstItem="u9M-CV-rIS" firstAttribute="top" secondItem="B17-fj-Ihx" secondAttribute="bottom" constant="9" id="5O6-Fj-w5h" userLabel="⭐️ ⭐️ ⭐️ ⭐️ ⭐️.top = Movie Genres Label.bottom + 6"/>
                                     <constraint firstItem="lQg-qt-iWh" firstAttribute="leading" secondItem="gzj-zr-7kI" secondAttribute="leading" constant="10" id="9rf-oJ-uPs"/>
                                     <constraint firstItem="5LT-nV-zuY" firstAttribute="top" secondItem="gzj-zr-7kI" secondAttribute="top" constant="10" id="A8h-1c-dvw"/>
                                     <constraint firstItem="5LT-nV-zuY" firstAttribute="leading" secondItem="gzj-zr-7kI" secondAttribute="leading" constant="10" id="IP9-cW-PN6"/>
@@ -55,9 +69,11 @@
                                     <constraint firstItem="B17-fj-Ihx" firstAttribute="top" secondItem="ee2-gB-Srd" secondAttribute="bottom" constant="3" id="NKK-ij-AMw"/>
                                     <constraint firstItem="ee2-gB-Srd" firstAttribute="leading" secondItem="5LT-nV-zuY" secondAttribute="trailing" constant="15" id="XiK-Dw-RV4"/>
                                     <constraint firstItem="ee2-gB-Srd" firstAttribute="top" secondItem="gzj-zr-7kI" secondAttribute="top" constant="20" id="ZZI-Rl-ad5"/>
+                                    <constraint firstItem="u9M-CV-rIS" firstAttribute="leading" secondItem="5LT-nV-zuY" secondAttribute="trailing" constant="15" id="aya-O1-JLz"/>
                                     <constraint firstItem="lQg-qt-iWh" firstAttribute="top" secondItem="5LT-nV-zuY" secondAttribute="bottom" constant="10" id="b8L-jA-FvI"/>
                                     <constraint firstAttribute="bottom" secondItem="lQg-qt-iWh" secondAttribute="bottom" id="dRf-be-w2Q"/>
                                     <constraint firstItem="B17-fj-Ihx" firstAttribute="leading" secondItem="5LT-nV-zuY" secondAttribute="trailing" constant="15" id="q3a-in-Q0F"/>
+                                    <constraint firstItem="4kD-EB-pR6" firstAttribute="top" secondItem="B17-fj-Ihx" secondAttribute="bottom" constant="9" id="t6E-5u-jao" userLabel="Label.top = Movie Genres Label.bottom + 9"/>
                                     <constraint firstAttribute="trailing" secondItem="B17-fj-Ihx" secondAttribute="trailing" constant="10" id="uw4-um-BYW"/>
                                     <constraint firstAttribute="height" constant="250" id="w7U-lF-awD"/>
                                 </constraints>
@@ -76,6 +92,7 @@
                         <outlet property="movieOverviewLabel" destination="lQg-qt-iWh" id="XYs-DT-4v4"/>
                         <outlet property="moviePosterImageView" destination="5LT-nV-zuY" id="AYf-3j-N6I"/>
                         <outlet property="movieTitleLabel" destination="ee2-gB-Srd" id="5sY-Rk-3CA"/>
+                        <outlet property="voteAverageLabel" destination="4kD-EB-pR6" id="BG7-Kf-QTJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
