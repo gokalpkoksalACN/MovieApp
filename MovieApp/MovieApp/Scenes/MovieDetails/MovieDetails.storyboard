@@ -38,6 +38,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre1 | Genre 2 | Genre 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B17-fj-Ihx">
+                                        <rect key="frame" x="165" y="44" width="239" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -46,10 +52,13 @@
                                     <constraint firstItem="5LT-nV-zuY" firstAttribute="leading" secondItem="gzj-zr-7kI" secondAttribute="leading" constant="10" id="IP9-cW-PN6"/>
                                     <constraint firstAttribute="trailing" secondItem="lQg-qt-iWh" secondAttribute="trailing" constant="10" id="JPJ-NQ-IsT"/>
                                     <constraint firstAttribute="trailing" secondItem="ee2-gB-Srd" secondAttribute="trailing" constant="10" id="Kdl-S2-klt"/>
+                                    <constraint firstItem="B17-fj-Ihx" firstAttribute="top" secondItem="ee2-gB-Srd" secondAttribute="bottom" constant="3" id="NKK-ij-AMw"/>
                                     <constraint firstItem="ee2-gB-Srd" firstAttribute="leading" secondItem="5LT-nV-zuY" secondAttribute="trailing" constant="15" id="XiK-Dw-RV4"/>
                                     <constraint firstItem="ee2-gB-Srd" firstAttribute="top" secondItem="gzj-zr-7kI" secondAttribute="top" constant="20" id="ZZI-Rl-ad5"/>
                                     <constraint firstItem="lQg-qt-iWh" firstAttribute="top" secondItem="5LT-nV-zuY" secondAttribute="bottom" constant="10" id="b8L-jA-FvI"/>
                                     <constraint firstAttribute="bottom" secondItem="lQg-qt-iWh" secondAttribute="bottom" id="dRf-be-w2Q"/>
+                                    <constraint firstItem="B17-fj-Ihx" firstAttribute="leading" secondItem="5LT-nV-zuY" secondAttribute="trailing" constant="15" id="q3a-in-Q0F"/>
+                                    <constraint firstAttribute="trailing" secondItem="B17-fj-Ihx" secondAttribute="trailing" constant="10" id="uw4-um-BYW"/>
                                     <constraint firstAttribute="height" constant="250" id="w7U-lF-awD"/>
                                 </constraints>
                             </view>
@@ -63,6 +72,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="movieGenresLabel" destination="B17-fj-Ihx" id="M8u-ZN-gZX"/>
                         <outlet property="movieOverviewLabel" destination="lQg-qt-iWh" id="XYs-DT-4v4"/>
                         <outlet property="moviePosterImageView" destination="5LT-nV-zuY" id="AYf-3j-N6I"/>
                         <outlet property="movieTitleLabel" destination="ee2-gB-Srd" id="5sY-Rk-3CA"/>

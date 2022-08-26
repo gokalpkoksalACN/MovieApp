@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct Genre: Decodable {
+struct Genre: Decodable, CustomStringConvertible {
     let name: String
+    var description: String { return self.name }
 }

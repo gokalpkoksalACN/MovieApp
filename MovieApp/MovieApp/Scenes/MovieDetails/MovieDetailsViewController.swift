@@ -15,13 +15,28 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDelegate {
             moviePosterImageView.contentMode = .scaleAspectFill
         }
     }
-    // TODO: Fix font
-    @IBOutlet private weak var movieTitleLabel: UILabel!
+
+    @IBOutlet private weak var movieTitleLabel: UILabel! {
+        didSet {
+            movieTitleLabel.numberOfLines = 0
+            movieTitleLabel.font = .appFont(with: 18)
+            movieTitleLabel.textColor = AppColors.greyishBrown
+        }
+    }
+    
+    @IBOutlet private weak var movieGenresLabel: UILabel! {
+        didSet {
+            movieGenresLabel.numberOfLines = 0
+            movieGenresLabel.font = .appFont(with: 13)
+            movieGenresLabel.textColor = AppColors.greyishBrown
+        }
+    }
     
     // TODO: Implement see more button for overview
     @IBOutlet private weak var movieOverviewLabel: UILabel! {
         didSet {
             movieOverviewLabel.numberOfLines = 0
+            movieOverviewLabel.font = .appFont(with: 14)
         }
     }
     
@@ -37,11 +52,24 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDelegate {
         switch output {
         // TODO: set other details
         case .setMovieDetails(let movie):
-            movieTitleLabel?.text = movie.title
-            movieOverviewLabel?.text = movie.overview
             if let url = movie.posterImageURL {
                 moviePosterImageView?.setImage(with: url)
             }
+            movieTitleLabel?.text = movie.title
+            if let genres = movie.genres {
+                movieGenresLabel.text = getGenresString(for: genres)
+            }
+            movieOverviewLabel?.text = movie.overview
+            
         }
+    }
+    
+    private func getGenresString(for genres: [Genre]) -> String {
+        var genresString = ""
+        for genre in genres {
+            genresString.append(contentsOf: genre.description + " | ")
+        }
+        genresString.removeLast(2)
+        return genresString
     }
 }
