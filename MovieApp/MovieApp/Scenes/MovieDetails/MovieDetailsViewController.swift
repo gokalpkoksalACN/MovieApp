@@ -48,6 +48,13 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDelegate {
         }
     }
     
+    @IBOutlet private weak var languageLabel: UILabel! {
+        didSet {
+            languageLabel.font = .appFont(with: 13)
+            languageLabel.textColor = AppColors.greyishBrown
+        }
+    }
+    
     var viewModel: MovieDetailsViewModelProtocol?
     
     override func viewDidLoad() {
@@ -69,6 +76,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDelegate {
             }
             movieOverviewLabel?.text = movie.overview
             voteAverageLabel.text = String(movie.voteAverage) + "/ 10"
+            languageLabel.text = "Language: " + movie.language 
         }
     }
     
