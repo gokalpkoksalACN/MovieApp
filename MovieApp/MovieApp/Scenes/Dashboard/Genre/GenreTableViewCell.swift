@@ -22,7 +22,7 @@ class GenreTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         bottomView.backgroundColor = AppColors.veryLightPink_65
-        genreTitleLabel.font = UIFont(name: "AppleGothic", size: 22)
+        genreTitleLabel.font = .appFont(with: 22)
     }
     
     func setup(with presentation: GenrePresentation) {

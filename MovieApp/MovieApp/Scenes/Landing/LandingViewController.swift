@@ -37,7 +37,7 @@ class LandingViewController: UIViewController {
     
     private func configureDescriptionTitle() {
         descriptionLabel.text = "The world’s most popular and authoritative source for movies and series."
-        descriptionLabel.font = UIFont(name: "AppleGothic", size: 17)
+        descriptionLabel.font = .appFont(with: 17)
         descriptionLabel.layer.applySketchShadow(color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.5), x: 0, y: 2, blur: 4, spread: 0)
         descriptionLabel.textColor = .white
         descriptionLabel.numberOfLines = 0
@@ -46,7 +46,7 @@ class LandingViewController: UIViewController {
     
     private func configureTitleLabel() {
         titleLabel.text = "Movies & Series"
-        titleLabel.font = UIFont(name: "AppleGothic", size: 40)
+        titleLabel.font = .appFont(with: 40)
         titleLabel.layer.applySketchShadow(color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.5), x: 0, y: 2, blur: 4, spread: 0)
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
@@ -57,7 +57,7 @@ class LandingViewController: UIViewController {
     private func configureExploreButton() {
         let exploreLabel = UILabel()
         exploreLabel.text = "Explore Collection"
-        exploreLabel.font = UIFont(name: "AppleGothic", size: 22)
+        exploreLabel.font = .appFont(with: 22)
         exploreLabel.textColor = .white
         exploreLabel.textAlignment = .center
         exploreLabel.addCharacterSpacing(kernValue: -1.06)

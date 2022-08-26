@@ -27,7 +27,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var movieTitleLabel: UILabel! {
         didSet {
             movieTitleLabel.numberOfLines = 0
-            movieTitleLabel.font = UIFont(name: "AppleGothic", size: 14)
+            movieTitleLabel.font = .appFont(with: 14)
             movieTitleLabel.textColor = AppColors.greyishBrown
         }
     }

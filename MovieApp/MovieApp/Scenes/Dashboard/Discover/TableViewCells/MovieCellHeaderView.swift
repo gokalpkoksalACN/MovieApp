@@ -15,7 +15,7 @@ class MovieCellHeaderView: UITableViewHeaderFooterView {
     private let seeAllLabel: UILabel = {
         let label = UILabel()
         label.text = "See All"
-        label.font = UIFont(name: "AppleGothic", size: 14)
+        label.font = .appFont(with: 14)
         label.textColor = AppColors.tealBlue
         return label
     }()
@@ -23,7 +23,7 @@ class MovieCellHeaderView: UITableViewHeaderFooterView {
     private let headerTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "MovieHeader"
-        label.font = UIFont(name: "AppleGothic", size: 16)
+        label.font = .appFont(with: 16)
         return label
     }()
     

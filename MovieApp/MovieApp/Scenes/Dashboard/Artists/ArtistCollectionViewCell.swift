@@ -23,7 +23,7 @@ class ArtistCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel! {
         didSet {
             nameLabel.textAlignment = .center
-            nameLabel.font = UIFont(name: "AppleGothic", size: 14)
+            nameLabel.font = .appFont(with: 14)
             nameLabel.textColor = AppColors.greyishBrown
             nameLabel.numberOfLines = 2
         }
