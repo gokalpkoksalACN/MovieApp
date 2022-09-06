@@ -42,12 +42,13 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NAN-SC-WyY">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Hk-Px-Cus">
                                 <rect key="frame" x="34" y="754" width="346" height="54"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="oOu-Q5-E9W"/>
+                                    <constraint firstAttribute="height" constant="54" id="vMw-Tj-lWp"/>
                                 </constraints>
-                            </stackView>
+                            </view>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="och-2u-Rmq">
                                 <rect key="frame" x="50" y="828" width="314" height="4"/>
                                 <constraints>
@@ -76,12 +77,9 @@
                         <viewLayoutGuide key="safeArea" id="CHS-fU-Rr8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="NAN-SC-WyY" firstAttribute="leading" secondItem="CHS-fU-Rr8" secondAttribute="leading" constant="34" id="416-dz-P4e"/>
                             <constraint firstItem="Emk-Cs-Cvx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8va-iW-Hwx"/>
                             <constraint firstAttribute="trailing" secondItem="2cZ-SF-UD0" secondAttribute="trailing" constant="15" id="CaY-M4-bHN"/>
-                            <constraint firstItem="CHS-fU-Rr8" firstAttribute="trailing" secondItem="NAN-SC-WyY" secondAttribute="trailing" constant="34" id="DOz-GN-l6Z"/>
                             <constraint firstItem="CHS-fU-Rr8" firstAttribute="trailing" secondItem="och-2u-Rmq" secondAttribute="trailing" constant="50" id="FXj-dX-T9Q"/>
-                            <constraint firstItem="och-2u-Rmq" firstAttribute="top" secondItem="NAN-SC-WyY" secondAttribute="bottom" constant="20" id="JxP-VZ-ocK"/>
                             <constraint firstItem="och-2u-Rmq" firstAttribute="leading" secondItem="CHS-fU-Rr8" secondAttribute="leading" constant="50" id="NXH-Tb-8n4"/>
                             <constraint firstAttribute="bottom" secondItem="Emk-Cs-Cvx" secondAttribute="bottom" id="PgF-P9-hhy"/>
                             <constraint firstItem="2cZ-SF-UD0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="RQB-0J-FPi"/>
@@ -90,13 +88,16 @@
                             <constraint firstItem="Emk-Cs-Cvx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZxS-aJ-qvp"/>
                             <constraint firstItem="2cZ-SF-UD0" firstAttribute="top" secondItem="GMd-tj-bNN" secondAttribute="bottom" constant="15" id="bPT-so-G7S"/>
                             <constraint firstAttribute="trailing" secondItem="GMd-tj-bNN" secondAttribute="trailing" id="lpU-Qt-P0B"/>
+                            <constraint firstItem="4Hk-Px-Cus" firstAttribute="leading" secondItem="CHS-fU-Rr8" secondAttribute="leading" constant="34" id="max-sL-SvY"/>
+                            <constraint firstItem="och-2u-Rmq" firstAttribute="top" secondItem="4Hk-Px-Cus" secondAttribute="bottom" constant="20" id="oPO-fF-g1Q"/>
                             <constraint firstItem="GMd-tj-bNN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qAX-1r-Cfm"/>
                             <constraint firstItem="CHS-fU-Rr8" firstAttribute="bottom" secondItem="och-2u-Rmq" secondAttribute="bottom" constant="30" id="twW-w7-VeZ"/>
+                            <constraint firstItem="CHS-fU-Rr8" firstAttribute="trailing" secondItem="4Hk-Px-Cus" secondAttribute="trailing" constant="34" id="xeV-5w-ykF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="opP-IR-AY3"/>
                     <connections>
-                        <outlet property="buttonStackView" destination="NAN-SC-WyY" id="95F-jT-KWd"/>
+                        <outlet property="buttonView" destination="4Hk-Px-Cus" id="wL3-sz-7qp"/>
                         <outlet property="collectionView" destination="Emk-Cs-Cvx" id="bcf-CL-J38"/>
                         <outlet property="descriptionLabel" destination="2cZ-SF-UD0" id="pkG-zF-Da9"/>
                         <outlet property="pageControl" destination="och-2u-Rmq" id="3d9-vx-8ld"/>

@@ -14,7 +14,7 @@ class LandingViewController: UIViewController {
     @IBOutlet private weak var pageControl: UIPageControl!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var buttonStackView: UIStackView!
+    @IBOutlet private weak var buttonView: UIView!
     
     private let backgroundImageNames = ["walkingDead", "friends", "breakingBad"]
     
@@ -57,7 +57,7 @@ class LandingViewController: UIViewController {
     private func configureExploreButton() {
         let exploreLabel = UILabel()
         exploreLabel.text = "Explore Collection"
-        exploreLabel.font = .appFont(with: 22)
+        exploreLabel.font = .appFont(with: 24)
         exploreLabel.textColor = .white
         exploreLabel.textAlignment = .center
         exploreLabel.addCharacterSpacing(kernValue: -1.06)
@@ -65,17 +65,28 @@ class LandingViewController: UIViewController {
         let chevronRightImage = UIImage(named: "chevron_right")?.withRenderingMode(.alwaysTemplate)
         let arrowSign = UIImageView(image: chevronRightImage)
         arrowSign.tintColor = .white
-        arrowSign.translatesAutoresizingMaskIntoConstraints = false
-        arrowSign.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        arrowSign.heightAnchor.constraint(equalTo: arrowSign.widthAnchor).isActive = true
         
-        buttonStackView.addArrangedSubview(exploreLabel)
-        buttonStackView.addArrangedSubview(arrowSign)
-        buttonStackView.backgroundColor = AppColors.tealBlue_80
-        buttonStackView.layer.cornerRadius = 7.0
+        
+        
+        buttonView.addSubview(arrowSign)
+        buttonView.addSubview(exploreLabel)
+        buttonView.backgroundColor = AppColors.tealBlue_80
+        buttonView.layer.cornerRadius = 7.0
+        
+        exploreLabel.translatesAutoresizingMaskIntoConstraints = false
+        exploreLabel.sizeToFit()
+        exploreLabel.leftAnchor.constraint(equalTo: buttonView.leftAnchor, constant: 30).isActive = true
+        exploreLabel.rightAnchor.constraint(equalTo: arrowSign.leftAnchor, constant: -20).isActive = true
+        exploreLabel.centerYAnchor.constraint(equalTo: buttonView.centerYAnchor).isActive = true
+        
+        arrowSign.translatesAutoresizingMaskIntoConstraints = false
+        arrowSign.widthAnchor.constraint(equalToConstant: 18).isActive = true
+        arrowSign.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        arrowSign.rightAnchor.constraint(equalTo: buttonView.rightAnchor, constant: -20).isActive = true
+        arrowSign.centerYAnchor.constraint(equalTo: buttonView.centerYAnchor).isActive = true
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(explorePressed(_:)))
-        buttonStackView.addGestureRecognizer(gestureRecognizer)
+        buttonView.addGestureRecognizer(gestureRecognizer)
     }
     
     private func configurePageControl() {
