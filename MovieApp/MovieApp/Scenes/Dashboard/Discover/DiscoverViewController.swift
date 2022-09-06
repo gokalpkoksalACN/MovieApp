@@ -31,14 +31,11 @@ class DiscoverViewController: UIViewController, DiscoverDelegate {
     func handleViewModelOutput(_ output: DiscoverViewModelOutput) {
         switch output {
         case .updatePopularMovies(let presentations):
-            self.popularMoviesCellPresentation = MoviesCellPresentation(isAnimating: false, movies: presentations)
-            tableView.reloadData()
+            updateTableViewSection(with: presentations, cellType: .Popular)
         case .updateRecentMovies(let presentations):
-            self.recentMoviesCellPresentation = MoviesCellPresentation(isAnimating: false, movies: presentations)
-            tableView.reloadData()
+            updateTableViewSection(with: presentations, cellType: .Recent)
         case .updateUpcomingMovies(let presentations):
-            self.upcomingMoviesCellPresentation = MoviesCellPresentation(isAnimating: false, movies: presentations)
-            tableView.reloadData()
+            updateTableViewSection(with: presentations, cellType: .Upcoming)
         }
     }
     
@@ -67,6 +64,31 @@ class DiscoverViewController: UIViewController, DiscoverDelegate {
         tableView.separatorStyle = .none
     }
     
+    private func updateTableViewSection(with movies: [MovieCardPresentation], cellType: DiscoverCellType) {
+        switch cellType {
+        case .Popular:
+            let currentMovies = self.popularMoviesCellPresentation.movies
+            let updatedMovies = currentMovies + movies
+            self.popularMoviesCellPresentation = MoviesCellPresentation(isAnimating: false, movies: updatedMovies)
+            let indexPath = IndexPath(row: 0, section: 0)
+            tableView.reloadRows(at: [indexPath], with: .none)
+        case .Recent:
+            let currentMovies = self.recentMoviesCellPresentation.movies
+            let updatedMovies = currentMovies + movies
+            self.recentMoviesCellPresentation = MoviesCellPresentation(isAnimating: false, movies: updatedMovies)
+            let indexPath = IndexPath(row: 0, section: 1)
+            tableView.reloadRows(at: [indexPath], with: .none)
+        case .Upcoming:
+            let currentMovies = self.upcomingMoviesCellPresentation.movies
+            let updatedMovies = currentMovies + movies
+            self.upcomingMoviesCellPresentation = MoviesCellPresentation(isAnimating: false, movies: updatedMovies)
+            let indexPath = IndexPath(row: 0, section: 2)
+            tableView.reloadRows(at: [indexPath], with: .none)
+        case .Undefined:
+            break
+        }
+    }
+    
 }
 
 extension DiscoverViewController: UITableViewDelegate {
@@ -91,19 +113,29 @@ extension DiscoverViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             cell.configure(with: popularMoviesCellPresentation)
+            cell.type = .Popular
         case 1:
             cell.configure(with: recentMoviesCellPresentation)
+            cell.type = .Recent
         case 2:
             cell.configure(with: upcomingMoviesCellPresentation)
+            cell.type = .Upcoming
         default:
             break
         }
+        
         cell.onMovieSelect = { movie in
             let storyboard = UIStoryboard(name: "MovieDetails", bundle: nil)
             let viewController = storyboard.instantiateViewController(withIdentifier: "MovieDetailsViewController") as! MovieDetailsViewController
             viewController.viewModel = MovieDetailsViewModel(movie: movie, service: MovieAppService())
             self.navigationController?.pushViewController(viewController, animated: true)
         }
+        
+        // TODO: Add footer loading animation for paginating
+        cell.onDidScrollToTheEnd = { cellType in
+            self.viewModel.onDidScrollToTheEnd(with: cellType)
+        }
+        
         return cell
     }
     

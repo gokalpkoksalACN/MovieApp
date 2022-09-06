@@ -17,9 +17,9 @@ protocol MovieArtistAPI {
 }
 
 protocol MovieDiscoverAPI {
-    func getPopularMovies(completion: @escaping (Result<MoviesResponse, Error>) -> Void)
-    func getUpcomingMovies(completion: @escaping (Result<MoviesResponse, Error>) -> Void)
-    func getRecentMovies(completion: @escaping (Result<MoviesResponse, Error>) -> Void)
+    func getPopularMovies(page: Int, completion: @escaping (Result<MoviesResponse, Error>) -> Void)
+    func getUpcomingMovies(page: Int, completion: @escaping (Result<MoviesResponse, Error>) -> Void)
+    func getRecentMovies(page: Int, completion: @escaping (Result<MoviesResponse, Error>) -> Void)
 }
 
 protocol MovieDetailsAPI {
@@ -33,7 +33,7 @@ final class MovieAppService: MovieGenreAPI, MovieArtistAPI, MovieDiscoverAPI, Mo
     
     func getGenreList(completion: @escaping (Result<GenreResponse, Error>) -> Void) {
         let path = "genre/movie/list"
-        let urlString = getUrlString(for: path)
+        let urlString = getUrlString(for: path, page: 1)
         AF.request(urlString).responseData { response in
             switch response.result {
             case .success(let data):
@@ -51,9 +51,10 @@ final class MovieAppService: MovieGenreAPI, MovieArtistAPI, MovieDiscoverAPI, Mo
         }
     }
     
+    // TODO: Implement pagination
     func getArtists(completion: @escaping (Result<ArtistsResponse, Error>) -> Void) {
         let path = "person/popular"
-        let urlString = getUrlString(for: path)
+        let urlString = getUrlString(for: path, page: 1)
         AF.request(urlString).responseData { response in
             switch response.result {
             case .success(let data):
@@ -71,9 +72,9 @@ final class MovieAppService: MovieGenreAPI, MovieArtistAPI, MovieDiscoverAPI, Mo
         }
     }
     
-    func getPopularMovies(completion: @escaping (Result<MoviesResponse, Error>) -> Void) {
+    func getPopularMovies(page: Int = 1, completion: @escaping (Result<MoviesResponse, Error>) -> Void) {
         let path = "movie/popular"
-        let urlString = getUrlString(for: path)
+        let urlString = getUrlString(for: path, page: page)
         AF.request(urlString).responseData { response in
             switch response.result {
             case .success(let data):
@@ -91,9 +92,9 @@ final class MovieAppService: MovieGenreAPI, MovieArtistAPI, MovieDiscoverAPI, Mo
         }
     }
     
-    func getUpcomingMovies(completion: @escaping (Result<MoviesResponse, Error>) -> Void) {
+    func getUpcomingMovies(page: Int = 1, completion: @escaping (Result<MoviesResponse, Error>) -> Void) {
         let path = "movie/upcoming"
-        let urlString = getUrlString(for: path)
+        let urlString = getUrlString(for: path, page: page)
         AF.request(urlString).responseData { response in
             switch response.result {
             case .success(let data):
@@ -111,9 +112,9 @@ final class MovieAppService: MovieGenreAPI, MovieArtistAPI, MovieDiscoverAPI, Mo
         }
     }
     
-    func getRecentMovies(completion: @escaping (Result<MoviesResponse, Error>) -> Void) {
+    func getRecentMovies(page: Int = 1, completion: @escaping (Result<MoviesResponse, Error>) -> Void) {
         let path = "movie/now_playing"
-        let urlString = getUrlString(for: path)
+        let urlString = getUrlString(for: path, page: page)
         AF.request(urlString).responseData { response in
             switch response.result {
             case .success(let data):
@@ -133,7 +134,7 @@ final class MovieAppService: MovieGenreAPI, MovieArtistAPI, MovieDiscoverAPI, Mo
     
     func getMovieDetails(with id: Int, completion: @escaping (Result<Movie, Error>) -> Void) {
         let path = "movie/\(id)"
-        let urlString = getUrlString(for: path)
+        let urlString = getUrlString(for: path, page: 1)
         AF.request(urlString).responseData { response in
             switch response.result {
             case .success(let data):
@@ -150,7 +151,7 @@ final class MovieAppService: MovieGenreAPI, MovieArtistAPI, MovieDiscoverAPI, Mo
         }
     }
     
-    private func getUrlString(for path: String) -> String {
-        return baseUrl + "/" + path + "?" + "api_key=" + apiKey
+    private func getUrlString(for path: String, page: Int) -> String {
+        return baseUrl + "/" + path + "?" + "api_key=" + apiKey + "&page=" + String(page)
     }
 }

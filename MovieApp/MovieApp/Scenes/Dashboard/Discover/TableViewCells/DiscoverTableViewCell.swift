@@ -7,6 +7,13 @@
 
 import UIKit
 
+enum DiscoverCellType {
+    case Popular
+    case Recent
+    case Upcoming
+    case Undefined
+}
+
 class DiscoverTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -17,6 +24,8 @@ class DiscoverTableViewCell: UITableViewCell {
     }
     
     var onMovieSelect: ((MovieCardPresentation) -> Void)?
+    var onDidScrollToTheEnd: ((DiscoverCellType) -> Void)?
+    var type: DiscoverCellType = .Undefined
     
     static let identifier = "DiscoverTableViewCell"
     
@@ -62,6 +71,7 @@ extension DiscoverTableViewCell: UICollectionViewDelegate {
 }
 
 extension DiscoverTableViewCell: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.identifier, for: indexPath) as! MovieCollectionViewCell
         cell.backgroundColor = .white
@@ -77,6 +87,12 @@ extension DiscoverTableViewCell: UICollectionViewDataSource {
         return movies.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        // TODO: Fix on popular movies didScrollToEnd procs on recent movies didScrollToEnd
+        if indexPath.row == movies.count - 1 {
+            onDidScrollToTheEnd?(type)
+        }
+    }
 }
 
 extension DiscoverTableViewCell: UICollectionViewDelegateFlowLayout {

@@ -80,6 +80,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsDelegate {
         }
     }
     
+    // TODO: let viewModel or MovieDetailPresentation init handle this.
     private func getGenresString(for genres: [Genre]) -> String {
         var genresString = ""
         for genre in genres {
