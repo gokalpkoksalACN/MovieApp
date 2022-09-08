@@ -18,6 +18,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     private var imageDownloadTask: ImageTask?
 
+    // TODO: Implement spinner for image loading
     @IBOutlet private weak var movieImageView: UIImageView! {
         didSet {
             movieImageView.backgroundColor = .lightGray

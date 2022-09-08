@@ -14,6 +14,7 @@ enum DiscoverCellType {
     case Undefined
 }
 
+// TODO: extract business logic to a viewModel
 class DiscoverTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -45,6 +46,7 @@ class DiscoverTableViewCell: UITableViewCell {
         layout.scrollDirection = .horizontal
         collectionView.collectionViewLayout = layout
         collectionView.register(MovieCollectionViewCell.nib(), forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
+        collectionView.register(MoviesFooterCollectionReusableCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: MoviesFooterCollectionReusableCell.identifier)
         collectionView.backgroundColor = AppColors.veryLightPink
     }
     
@@ -87,10 +89,21 @@ extension DiscoverTableViewCell: UICollectionViewDataSource {
         return movies.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        // TODO: Fix on popular movies didScrollToEnd procs on recent movies didScrollToEnd
-        if indexPath.row == movies.count - 1 {
-            onDidScrollToTheEnd?(type)
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: MoviesFooterCollectionReusableCell.identifier, for: indexPath) as! MoviesFooterCollectionReusableCell
+        footerView.configure()
+        return footerView
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: 50, height: collectionView.contentSize.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
+        if movies.count > 10, elementKind == UICollectionView.elementKindSectionFooter {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.onDidScrollToTheEnd?(self.type)
+            }
         }
     }
 }

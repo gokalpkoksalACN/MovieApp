@@ -64,6 +64,7 @@ class DiscoverViewController: UIViewController, DiscoverDelegate {
         tableView.separatorStyle = .none
     }
     
+    // TODO: Fix tableView reload style
     private func updateTableViewSection(with movies: [MovieCardPresentation], cellType: DiscoverCellType) {
         switch cellType {
         case .Popular:
@@ -100,6 +101,7 @@ extension DiscoverViewController: UITableViewDelegate {
 }
 
 extension DiscoverViewController: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -131,7 +133,6 @@ extension DiscoverViewController: UITableViewDataSource {
             self.navigationController?.pushViewController(viewController, animated: true)
         }
         
-        // TODO: Add footer loading animation for paginating
         cell.onDidScrollToTheEnd = { cellType in
             self.viewModel.onDidScrollToTheEnd(with: cellType)
         }
